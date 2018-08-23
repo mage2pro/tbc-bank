@@ -1,0 +1,217 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:module:Df_Config:etc/system_file.xsd'
+>
+	<system>
+		<section id='df_payment'>
+<!-- 2015-09-25, 2017-10-22
+Magento 2 is not capable to automatically order settings groups
+in the backend «Stores» → «Configuration» left menu by alphabet.
+To achieve such ordering, I use the following 2 rules to assign a `sortOrder` value to a settings group:
+1) The 1-st and 2-nd digits of a `sortOrder` value
+are the digits of the ordering number of the 1-st letter of the module's label in the English alphabet:
+https://en.wikipedia.org/w/index.php?title=English_alphabet&oldid=819841239
+2) The 3-rd and 4-nd digits of a `sortOrder` value
+are the digits of the ordering number of the 2-nd letter of the module's label in the English alphabet.
+===
+An example:
+A label is «Stripe».
+The first letter is «S». It is the 19-nd letter of the English alphabet.
+The second letter is «t». It is the 20-nd letter of the English alphabet.
+So the `sortOrder` value is 1920. -->
+			<group
+				id='tbc_bank'
+				showInDefault='1' showInStore='1' showInWebsite='1'
+				sortOrder='2002'
+				translate='label'
+			>
+				<label>TBCBank Bank</label>
+				<dfExtension>Dfe_TBCBank</dfExtension>
+				<frontend_model>Df\Config\Fieldset</frontend_model>
+				<field
+					id='enable'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='1'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+				>
+					<label>Enable?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/tbc-bank' target='_blank'>TBCBank Bank</a>» payment extension?]]></comment>
+				</field>
+				<field
+					id='title'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='2'
+					translate='label'
+					type='text'
+				>
+					<label>Title</label>
+					<comment><![CDATA[It is shown on the checkout screen.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='test'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='3'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+				>
+					<label>Test Mode?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<comment><![CDATA[]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='testMerchantID'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='4'
+					translate='label'
+					type='text'
+				>
+					<label>Test Merchant ID</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3743' target='_blank'>How to get it?</a>]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='testPrivateKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='5'
+					translate='label'
+					type='obscure'
+				>
+					<label>Test Private Key</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3743' target='_blank'>How to get it?</a>]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='liveMerchantID'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='6'
+					translate='label'
+					type='text'
+				>
+					<label>Live Merchant ID</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3743' target='_blank'>How to get it?</a>]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='livePrivateKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='7'
+					translate='label'
+					type='obscure'
+				>
+					<label>Live Private Key</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3743' target='_blank'>How to get it?</a>]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='description'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='8'
+					translate='label'
+					type='textarea'
+				>
+					<label>Description</label>
+					<comment><![CDATA[It will be displayed to you in the TBCBank Bank merchant interface alongside the payment.
+<br/>Up to 100 characters.
+<br/>You can use <a href='https://mage2.pro/t/1834' target='_blank'>variables</a> in the description.]]></comment>
+<!-- 2016-07-01
+We do not use the `validate-length` validator here
+because the value can contain variables, so do not know the real length here. -->
+					<validate>required-entry</validate>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='requireBillingAddress'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='16'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+				>
+					<label>Require the billing address?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<comment><![CDATA[If <b>checked</b>, Magento will require the billing address. It is the default Magento behavior.<br/>If <b>unchecked</b>, Magento will not require the billing address, and even will not ask for it.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='min_order_total'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='19'
+					translate='label'
+					type='text'
+				>
+					<label>Minimum Order Total</label>
+					<comment><![CDATA[]]></comment>
+					<validate>validate-number validate-greater-than-zero</validate>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='max_order_total'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='20'
+					translate='label'
+					type='text'
+				>
+					<label>Maximum Order Total</label>
+					<comment><![CDATA[]]></comment>
+					<validate>validate-number validate-greater-than-zero</validate>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='country_restriction'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='21'
+					translate='label'
+					type='select'
+				>
+					<label>Country Restriction</label>
+					<source_model>Df\Config\Source\NoWhiteBlack</source_model>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='countries'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='22'
+					translate='label'
+					type='Df\Framework\Form\Element\Multiselect'
+				>
+					<label>Countries</label>
+					<source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+					<can_be_empty>1</can_be_empty>
+					<depends>
+						<field id='enable'>1</field>
+<!--
+2016-03-08
+«The negative syntax for a backend config field <depends> condition»
+https://mage2.pro/t/329
+-->
+						<field id='country_restriction' negative='1'>0</field>
+					</depends>
+					<comment><![CDATA[Customers from which countries can (or can not) use the method?]]></comment>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>
