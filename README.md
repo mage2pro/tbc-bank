@@ -1,4 +1,4 @@
-This extension integrates a Magento 2 based webstore with [TBCBank Bank](http://www.tbcbank.ge) (Georgia).
+This extension integrates a Magento 2 based webstore with [TBC Bank](http://www.tbcbank.ge) (Georgia).
 
 ## How to buy
 The extension is not released yet, so there is no way to buy it just now.  
