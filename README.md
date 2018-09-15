@@ -60,7 +60,7 @@ I provide the [**customization service**](https://mage2.pro/t/2020) for my payme
 - «[**Spryng**](https://mage2.pro/c/extensions/spryng)» payment extension (the European Union).
 - «[**Square**](https://mage2.pro/c/extensions/square)» payment extension (USA, Canada).
 - «[**Stripe**](https://mage2.pro/c/stripe)» payment extension.
-- «[**TBC Bank**](https://mage2.pro/c/extensions/tinkoff)» (Тинькофф Банк) payment extension (Russia).
+- «[**TBC Bank**](https://mage2.pro/c/extensions/tbc-bank)» (Тинькофф Банк) payment extension (Russia).
 - «[**Yandex.Kassa**](https://mage2.pro/c/extensions/yandex-kassa)» (as known as Yandex.Checkout, Яндекс.Касса) payment extension (Russia, Armenia, Azerbaijan, Belarus, Georgia, Kazakhstan, Kyrgyzstan, Latvia, Moldova, Tajikistan).
 
 ## See also my integrations between Magento 2 and a third-party business software (ERP, CRM, accounting, inventory, etc.):
