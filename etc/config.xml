@@ -12,7 +12,7 @@
 				<description>{store.domain} // {customer.name} // {order.id}</description>
 				<requireBillingAddress>1</requireBillingAddress>
 				<title>TBC Bank</title>
-				<title_backend>TBCBank Bank</title_backend>
+				<title_backend>TBC Bank</title_backend>
 			</tbc_bank>
 		</df_payment>
         <payment>

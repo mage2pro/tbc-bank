@@ -26,7 +26,7 @@ So the `sortOrder` value is 1920. -->
 				sortOrder='2002'
 				translate='label'
 			>
-				<label>TBCBank Bank</label>
+				<label>TBC Bank</label>
 				<dfExtension>Dfe_TBCBank</dfExtension>
 				<frontend_model>Df\Config\Fieldset</frontend_model>
 				<field
@@ -38,7 +38,7 @@ So the `sortOrder` value is 1920. -->
 				>
 					<label>Enable?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
-					<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/tbc-bank' target='_blank'>TBCBank Bank</a>» payment extension?]]></comment>
+					<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/tbc-bank' target='_blank'>TBC Bank</a>» payment extension?]]></comment>
 				</field>
 				<field
 					id='title'
@@ -53,60 +53,17 @@ So the `sortOrder` value is 1920. -->
 					<validate>required-entry</validate>
 				</field>
 				<field
-					id='test'
-					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='3'
-					translate='label'
-					type='Df\Framework\Form\Element\Checkbox'
-				>
-					<label>Test Mode?</label>
-					<backend_model>Df\Config\Backend\Checkbox</backend_model>
-					<comment><![CDATA[]]></comment>
-					<depends><field id='enable'>1</field></depends>
-				</field>
-				<field
-					id='testMerchantID'
-					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='4'
-					translate='label'
-					type='text'
-				>
-					<label>Test Merchant ID</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/3743' target='_blank'>How to get it?</a>]]></comment>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>1</field>
-					</depends>
-					<validate>required-entry</validate>
-				</field>
-				<field
-					id='testPrivateKey'
-					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='5'
-					translate='label'
-					type='obscure'
-				>
-					<label>Test Private Key</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/3743' target='_blank'>How to get it?</a>]]></comment>
-					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>1</field>
-					</depends>
-					<validate>required-entry</validate>
-				</field>
-				<field
-					id='liveMerchantID'
+					dfRows='5'
+					id='certificate'
 					showInDefault='1' showInStore='1' showInWebsite='1'
 					sortOrder='6'
 					translate='label'
-					type='text'
+					type='Df\Framework\Form\Element\Textarea'
 				>
-					<label>Live Merchant ID</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/3743' target='_blank'>How to get it?</a>]]></comment>
+					<label>Certificate</label>
+					<comment><![CDATA[Paste the contents of your certificate (in the *.pem format) here.]]></comment>
 					<depends>
 						<field id='enable'>1</field>
-						<field id='test'>0</field>
 					</depends>
 					<validate>required-entry</validate>
 				</field>
@@ -134,7 +91,7 @@ So the `sortOrder` value is 1920. -->
 					type='textarea'
 				>
 					<label>Description</label>
-					<comment><![CDATA[It will be displayed to you in the TBCBank Bank merchant interface alongside the payment.
+					<comment><![CDATA[It will be displayed to you in the TBC Bank merchant interface alongside the payment.
 <br/>Up to 100 characters.
 <br/>You can use <a href='https://mage2.pro/t/1834' target='_blank'>variables</a> in the description.]]></comment>
 <!-- 2016-07-01
