@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank\T\CaseT;
+use Zend_Http_Client as Z;
 /**
  * 2018-09-26
  */
@@ -7,14 +8,29 @@ final class Init extends \Dfe\TBCBank\T\CaseT {
 	/** @test 2018-09-26 */
 	function t00() {}
 
-	/** 2018-09-26 */
+	/** @test 2018-09-26 */
 	function t01() {echo $this->transId();}
 
-	/** @test 2018-09-26 */
-	function t02() {echo $this->transId();}
+	/** 2018-09-26 */
+	function t02() {
+		$z = new Z('https://ecommerce.ufc.ge/ecomm2/ClientHandler', [
+			'timeout' => 120
+			/**
+			 * 2017-07-16
+			 * By default it is «Zend_Http_Client»: @see C::$config
+			 * https://github.com/magento/zf1/blob/1.13.1/library/Zend/Http/Client.php#L126
+			 */
+			,'useragent' => 'Mage2.PRO'
+		]); /** @var Z $r */
+		$z->setMethod(Z::POST);
+		$z->setParameterPost('trans_id', $this->transId());
+		echo $z->request()->getBody();
+	}
 
 	/**
 	 * 2018-09-26
+	 * @used-by t01()
+	 * @used-by t02()
 	 * @return string
 	 */
 	private function transId() {

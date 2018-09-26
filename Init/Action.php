@@ -14,7 +14,9 @@ final class Action extends \Df\Payment\Init\Action {
 	 * @used-by \Df\Payment\Init\Action::action()
 	 * @return string
 	 */
-	protected function redirectUrl() {return '';}
+	protected function redirectUrl() {return
+		"https://ecommerce.ufc.ge/ecomm2/ClientHandler?trans_id={$this->transIdE()}"
+	;}
 
 	/**
 	 * 2018-09-26 A string like «HOjPnNRq9KHNDKVnomSQUtShijw=».
@@ -28,6 +30,7 @@ final class Action extends \Df\Payment\Init\Action {
 
 	/**
 	 * 2018-09-26
+	 * @used-by redirectUrl()
 	 * @used-by transId()
 	 * @return string
 	 */
