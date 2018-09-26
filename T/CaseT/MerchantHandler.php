@@ -15,7 +15,7 @@ final class MerchantHandler extends \Dfe\TBCBank\T\CaseT {
 		$submit_url = "https://ecommerce.ufc.ge:18443/ecomm2/MerchantHandler";
 		curl_setopt($curl, CURLOPT_SSLVERSION, 1);
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $post_fields);
-		curl_setopt($curl, CURLOPT_VERBOSE, '1');
+		curl_setopt($curl, CURLOPT_VERBOSE, '0');
 		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, '0');
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, '0');
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -23,12 +23,12 @@ final class MerchantHandler extends \Dfe\TBCBank\T\CaseT {
 		curl_setopt($curl, CURLOPT_SSLCERT, $this->s()->certificate());
 		curl_setopt($curl, CURLOPT_SSLKEYPASSWD, $this->s()->password());
 		curl_setopt($curl, CURLOPT_URL, $submit_url);
+		/**
+		 * 2018-09-26 Dmitry Fedyuk
+		 * The server responds with a string like «TRANSACTION_ID: HOjPnNRq9KHNDKVnomSQUtShijw=».
+		 * A transaction ID always contains 28 characters.
+		 */
 		$result = curl_exec($curl);
-		$info = curl_getinfo($curl);
-		if(curl_errno($curl)) {
-			echo 'curl error:' . curl_error($curl)."<BR>";
-		}
-		curl_close($curl);
-		echo $result=substr($result,-28);
+		echo substr($result, -28);
 	}
 }
