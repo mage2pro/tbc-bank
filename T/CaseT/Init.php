@@ -8,7 +8,7 @@ final class Init extends \Dfe\TBCBank\T\CaseT {
 	/** @test 2018-09-26 */
 	function t00() {}
 
-	/** @test 2018-09-26 */
+	/** 2018-09-26 */
 	function t01() {echo $this->transId();}
 
 	/** 2018-09-26 */
@@ -26,6 +26,9 @@ final class Init extends \Dfe\TBCBank\T\CaseT {
 		$z->setParameterPost('trans_id', $this->transId());
 		echo $z->request()->getBody();
 	}
+
+	/** @test 2018-09-26 */
+	function t03() {echo df_currency_num('GEL') . ' ' . gettype(df_currency_num('GEL'));}
 
 	/**
 	 * 2018-09-26

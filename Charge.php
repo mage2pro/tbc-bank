@@ -1,11 +1,11 @@
 <?php
 namespace Dfe\TBCBank;
 /**
- * 2017-04-18
+ * 2018-09-26
  * @method Method m()
  * @method Settings s()
  */
-final class Charge extends \Df\PaypalClone\Charge {
+final class Charge extends \Df\Payment\Charge {
 	/**
 	 * 2017-08-19
 	 * @override
@@ -31,7 +31,16 @@ final class Charge extends \Df\PaypalClone\Charge {
 	 * @used-by \Df\PaypalClone\Charge::p()
 	 * @return array(string => mixed)
 	 */
-	protected function pCharge() {$s = $this->s(); return [];}
+	protected function pCharge() {$s = $this->s(); return [
+		// 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
+		'amount' => $this->amountF()
+		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
+		,'client_ip_addr' => df_visitor_ip()
+		,'command' => 'v' // 2018-09-26 «identifies a request for transaction registration»
+		,'currency' => 981 // 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
+		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
+		,'msg_type' => 'SMS' // 2018-09-26 «STUB»
+	];}
 
 	/**
 	 * 2017-04-18
