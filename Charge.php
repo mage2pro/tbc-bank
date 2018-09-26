@@ -21,4 +21,12 @@ final class Charge extends \Df\Payment\Charge {
 		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
 		,'msg_type' => 'SMS' // 2018-09-26 «STUB»
 	];}
+
+	/**
+	 * 2018-09-27
+	 * @used-by \Dfe\TBCBank\Init\Action::transIdE()
+	 * @param Method $m
+	 * @return array(string => mixed)
+	 */
+	static function p(Method $m) {return (new self($m))->pCharge();}
 }
