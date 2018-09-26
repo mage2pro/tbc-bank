@@ -16,7 +16,8 @@ final class MerchantHandler extends \Dfe\TBCBank\T\CaseT {
 		curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query([
 			// 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 			'amount' => 100
-			,'client_ip_addr' => '192.168.0.88' // 2018-09-26 «client’s IP address, mandatory (15 characters)»
+			// 2018-09-26 «client’s IP address, mandatory (15 characters)»
+			,'client_ip_addr' => df_visitor_ip()
 			,'command' => 'v' // 2018-09-26 «identifies a request for transaction registration»
 			,'currency' => 981 // 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
 			,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
