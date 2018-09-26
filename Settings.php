@@ -5,9 +5,26 @@ namespace Dfe\TBCBank;
 final class Settings extends \Df\Payment\Settings {
 	/**
 	 * 2018-09-26
+	 * @override
+	 * https://stackoverflow.com/a/11038338
+	 */
+	function __destruct() {
+		if ($this->_file) {
+			fclose($this->_file);
+		}
+	}
+
+	/**
+	 * 2018-09-26
+	 * https://stackoverflow.com/a/11038338
+	 * @used-by \Dfe\TBCBank\T\CaseT\MerchantHandler::t01()
 	 * @return string
 	 */
-	function certificate() {return $this->v();}
+	function certificate() {return dfc($this, function() {
+		$this->_file = tmpfile();
+		fwrite($this->_file, $this->v());
+		return stream_get_meta_data($this->_file)['uri'];
+	});}
 
 	/**
 	 * 2018-09-26
@@ -15,4 +32,12 @@ final class Settings extends \Df\Payment\Settings {
 	 * @return string
 	 */
 	function password() {return $this->p();}
+
+	/**
+	 * 2018-09-26
+	 * @used-by __destruct()
+	 * @used-by certificate()
+	 * @var resource|null
+	 */
+	private $_file;
 }

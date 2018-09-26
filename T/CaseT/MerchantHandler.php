@@ -20,7 +20,7 @@ final class MerchantHandler extends \Dfe\TBCBank\T\CaseT {
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, '0');
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl, CURLOPT_TIMEOUT, 120);
-		curl_setopt($curl, CURLOPT_SSLCERT, dirname(__FILE__) . '/5301455.pem');
+		curl_setopt($curl, CURLOPT_SSLCERT, $this->s()->certificate());
 		curl_setopt($curl, CURLOPT_SSLKEYPASSWD, $this->s()->password());
 		curl_setopt($curl, CURLOPT_URL, $submit_url);
 		$result = curl_exec($curl);
