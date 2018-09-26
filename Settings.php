@@ -17,6 +17,7 @@ final class Settings extends \Df\Payment\Settings {
 	/**
 	 * 2018-09-26
 	 * https://stackoverflow.com/a/11038338
+	 * @used-by \Dfe\TBCBank\Init\Action::transIdE()
 	 * @used-by \Dfe\TBCBank\T\CaseT\MerchantHandler::t01()
 	 * @return string
 	 */
@@ -28,6 +29,7 @@ final class Settings extends \Df\Payment\Settings {
 
 	/**
 	 * 2018-09-26
+	 * @used-by \Dfe\TBCBank\Init\Action::transIdE()
 	 * @used-by \Dfe\TBCBank\T\CaseT\MerchantHandler::t01()
 	 * @return string
 	 */
