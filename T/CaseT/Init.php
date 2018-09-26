@@ -3,12 +3,21 @@ namespace Dfe\TBCBank\T\CaseT;
 /**
  * 2018-09-26
  */
-final class MerchantHandler extends \Dfe\TBCBank\T\CaseT {
+final class Init extends \Dfe\TBCBank\T\CaseT {
 	/** @test 2018-09-26 */
 	function t00() {}
 
+	/** 2018-09-26 */
+	function t01() {echo $this->transId();}
+
 	/** @test 2018-09-26 */
-	function t01() {
+	function t02() {echo $this->transId();}
+
+	/**
+	 * 2018-09-26
+	 * @return string
+	 */
+	private function transId() {
 		$curl = curl_init();
 		$submit_url = "https://ecommerce.ufc.ge:18443/ecomm2/MerchantHandler";
 		// 2018-09-26
@@ -36,6 +45,6 @@ final class MerchantHandler extends \Dfe\TBCBank\T\CaseT {
 		// The server responds with a string like «TRANSACTION_ID: HOjPnNRq9KHNDKVnomSQUtShijw=».
 		// A transaction ID always contains 28 characters.
 		$result = curl_exec($curl);
-		echo substr($result, -28);
+		return substr($result, -28);
 	}
 }
