@@ -35,6 +35,15 @@ final class Settings extends \Df\Payment\Settings {
 
 	/**
 	 * 2018-09-26
+	 * @override
+	 * @see \Df\Config\Settings::prefix()
+	 * @used-by \Df\Config\Settings::v()
+	 * @return string
+	 */
+	protected function prefix() {return 'df_payment/tbc_bank';}
+
+	/**
+	 * 2018-09-26
 	 * @used-by __destruct()
 	 * @used-by certificate()
 	 * @var resource|null
