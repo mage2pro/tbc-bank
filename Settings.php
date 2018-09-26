@@ -22,7 +22,7 @@ final class Settings extends \Df\Payment\Settings {
 	 */
 	function certificate() {return dfc($this, function() {
 		$this->_file = tmpfile();
-		fwrite($this->_file, $this->v());
+		fwrite($this->_file, $this->v('certificate'));
 		return stream_get_meta_data($this->_file)['uri'];
 	});}
 
