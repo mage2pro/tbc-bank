@@ -7,31 +7,10 @@ namespace Dfe\TBCBank;
  */
 final class Charge extends \Df\Payment\Charge {
 	/**
-	 * 2017-08-19
-	 * @override
-	 * @see \Df\PaypalClone\Charge::k_Amount()
-	 * @used-by \Df\PaypalClone\Charge::p()
-	 * @return string
-	 */
-	protected function k_Amount() {return '';}
-
-	/**
-	 * 2017-08-19
-	 * @override
-	 * @see \Df\PaypalClone\Charge::k_MerchantId()
-	 * @used-by \Df\PaypalClone\Charge::p()
-	 * @return string
-	 */
-	protected function k_MerchantId() {return '';}
-
-	/**
-	 * 2017-04-18
-	 * @override
-	 * @see \Df\PaypalClone\Charge::pCharge()
-	 * @used-by \Df\PaypalClone\Charge::p()
+	 * 2018-09-27
 	 * @return array(string => mixed)
 	 */
-	protected function pCharge() {$s = $this->s(); return [
+	private function pCharge() {$s = $this->s(); return [
 		// 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		'amount' => $this->amountF()
 		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
@@ -42,22 +21,4 @@ final class Charge extends \Df\Payment\Charge {
 		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
 		,'msg_type' => 'SMS' // 2018-09-26 «STUB»
 	];}
-
-	/**
-	 * 2017-04-18
-	 * @override
-	 * @see \Df\PaypalClone\Charge::k_RequestId()
-	 * @used-by \Df\PaypalClone\Charge::p()
-	 * @return string
-	 */
-	protected function k_RequestId() {return '';}
-
-	/**
-	 * 2017-04-18
-	 * @override
-	 * @see \Df\PaypalClone\Charge::k_Signature()
-	 * @used-by \Df\PaypalClone\Charge::p()
-	 * @return string
-	 */
-	protected function k_Signature() {return '';}
 }
