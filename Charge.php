@@ -37,7 +37,8 @@ final class Charge extends \Df\Payment\Charge {
 		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
 		,'client_ip_addr' => df_visitor_ip()
 		,'command' => 'v' // 2018-09-26 «identifies a request for transaction registration»
-		,'currency' => 981 // 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
+		// 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
+		,'currency' => df_currency_num($this->currencyC())
 		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
 		,'msg_type' => 'SMS' // 2018-09-26 «STUB»
 	];}
