@@ -2,7 +2,7 @@ This extension integrates a Magento 2 based webstore with [TBC Bank](http://www.
 
 ## How to buy
 The extension is not released yet, so there is no way to buy it just now.  
-The extension will be released before **2018-09-05**.     
+The extension will be released before **2018-10-01**.     
 
 ## How to install
 ### 1. Free installation service
