@@ -10,5 +10,5 @@
 			</argument>
 		</arguments>
 	</type>
-	<virtualType name='Dfe\TBCBank\Controller\CustomerReturn\Index' type='Df\Payment\CustomerReturn'/>
+	<virtualType name='Dfe\TBCBank\Controller\CustomerReturn\Index' type='Df\Payment\W\Action'/>
 </config>
