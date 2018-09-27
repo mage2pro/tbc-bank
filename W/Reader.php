@@ -41,6 +41,7 @@ final class Reader extends \Df\Payment\W\Reader {
 	/**
 	 * 2018-09-28
 	 * @used-by reqFilter()
+	 * @used-by \Dfe\TBCBank\W\Event::k_idE()
 	 * @used-by \Dfe\TBCBank\W\Event::k_pid()
 	 */
 	const ID = 'trans_id';

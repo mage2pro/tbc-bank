@@ -9,7 +9,7 @@ final class Event extends \Df\PaypalClone\W\Event {
 	 * @used-by \Df\PaypalClone\W\Event::idE()
 	 * @return null
 	 */
-	protected function k_idE() {return null;}
+	protected function k_idE() {return Reader::ID;}
 
 	/**
 	 * 2018-09-28
