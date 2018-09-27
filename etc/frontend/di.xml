@@ -11,4 +11,6 @@
 		</arguments>
 	</type>
 	<virtualType name='Dfe\TBCBank\Controller\CustomerReturn\Index' type='Df\Payment\W\Action'/>
+	<virtualType name='Dfe\TBCBank\W\Handler' type='Df\PaypalClone\W\Handler'/>
+	<virtualType name='Dfe\TBCBank\W\Nav' type='Df\StripeClone\W\Nav'/>
 </config>
