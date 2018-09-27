@@ -1,9 +1,7 @@
 <?php
 namespace Dfe\TBCBank\T\CaseT;
 use Zend_Http_Client as Z;
-/**
- * 2018-09-26
- */
+// 2018-09-26
 final class Init extends \Dfe\TBCBank\T\CaseT {
 	/** @test 2018-09-26 */
 	function t00() {}
@@ -27,7 +25,7 @@ final class Init extends \Dfe\TBCBank\T\CaseT {
 		echo $z->request()->getBody();
 	}
 
-	/** @test 2018-09-26 */
+	/** 2018-09-26 */
 	function t03() {echo df_currency_num('GEL') . ' ' . gettype(df_currency_num('GEL'));}
 
 	/**
