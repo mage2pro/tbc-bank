@@ -16,10 +16,5 @@ final class CheckResult extends \Dfe\TBCBank\T\CaseT {
 	 * APPROVAL_CODE: 228017
 	 * CARD_NUMBER: 5***********1988»
 	 */
-	function t01() {echo Api::p([
-		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
-		'client_ip_addr' => df_visitor_ip()
-		,'command' => 'c'
-		,'trans_id' => 'DK4K/mkyiJZ2PSJc9NMdjfS3nds='
-	]);}
+	function t01() {echo Api::p('c', ['trans_id' => 'DK4K/mkyiJZ2PSJc9NMdjfS3nds=']);}
 }
