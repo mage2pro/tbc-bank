@@ -1,8 +1,25 @@
 <?php
 namespace Dfe\TBCBank\W;
-use Magento\Sales\Model\Order\Payment\Transaction as T;
 // 2018-09-27
 final class Event extends \Df\PaypalClone\W\Event {
+	/**
+	 * 2018-09-28
+	 * @override
+	 * @see \Df\PaypalClone\W\Event::k_idE()
+	 * @used-by \Df\PaypalClone\W\Event::idE()
+	 * @return null
+	 */
+	protected function k_idE() {return null;}
+
+	/**
+	 * 2018-09-28
+	 * @override
+	 * @see \Df\Payment\W\Event::k_pid()
+	 * @used-by \Df\Payment\W\Event::pid()
+	 * @return string
+	 */
+	protected function k_pid() {return Reader::ID;}
+	
 	/**
 	 * 2018-09-27
 	 * This method is never used: @see validate()
