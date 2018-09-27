@@ -10,12 +10,24 @@ Just order my [free installation service](https://mage2.pro/t/3585).
 
 ### 2. Self-installation
 ```
+bin/magento maintenance:enable
 composer require mage2pro/tbc-bank:*
 bin/magento setup:upgrade
-rm -rf pub/static/* && bin/magento setup:static-content:deploy ka_GE en_US <additional locales, e.g.: ru_RU>
 rm -rf var/di var/generation generated/code && bin/magento setup:di:compile
+rm -rf pub/static/* && bin/magento setup:static-content:deploy ka_GE en_US <additional locales, e.g.: ru_RU>
+bin/magento maintenance:disable
 ```
 If you have problems with these commands, please check the [detailed instruction](https://mage2.pro/t/263).
+
+## How to update
+```
+bin/magento maintenance:enable
+composer update mage2pro/tbc-bank
+bin/magento setup:upgrade
+rm -rf var/di var/generation generated/code && bin/magento setup:di:compile
+rm -rf pub/static/* && bin/magento setup:static-content:deploy ka_GE en_US <additional locales, e.g.: ru_RU>
+bin/magento maintenance:disable
+```
 
 ## Licensing
 It is a paid extension, not free.  
