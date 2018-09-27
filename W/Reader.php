@@ -12,7 +12,7 @@ final class Reader extends \Df\Payment\W\Reader {
 	 * @return array(string => mixed)
 	 */
 	protected function reqFilter(array $r) {
-		if (isset($r['trans_id'])) {
+		if ($t = dfa($r, 'trans_id')) {  /** @var string $t */
 			/**
 			 * 2018-09-27
 			 * A response looks like:
@@ -29,7 +29,7 @@ final class Reader extends \Df\Payment\W\Reader {
 				// 2018-09-26 «client’s IP address, mandatory (15 characters)»
 				'client_ip_addr' => df_visitor_ip()
 				,'command' => 'c'
-				,'trans_id' => 'DK4K/mkyiJZ2PSJc9NMdjfS3nds='
+				,'trans_id' => $t
 			]));
 		}
 		return $r;
