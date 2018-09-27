@@ -7,6 +7,7 @@ final class Api {
 	 * @used-by \Dfe\TBCBank\Init\Action::transIdE()
 	 * @used-by \Dfe\TBCBank\T\CaseT\CheckResult::t01()
 	 * @used-by \Dfe\TBCBank\T\CaseT\Init::transId()
+	 * @used-by \Dfe\TBCBank\W\Reader::reqFilter()
 	 * @param array(string => string) $p
 	 * @return string
 	 */
