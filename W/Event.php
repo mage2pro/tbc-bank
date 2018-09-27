@@ -1,48 +1,52 @@
 <?php
 namespace Dfe\TBCBank\W;
 // 2018-09-27
-final class Event extends \Df\PaypalClone\W\Event {
+final class Event extends \Df\StripeClone\W\Event {
 	/**
 	 * 2018-09-28
 	 * @override
-	 * @see \Df\PaypalClone\W\Event::k_idE()
-	 * @used-by \Df\PaypalClone\W\Event::idE()
+	 * @see \Df\Payment\W\Event::isSuccessful()
+	 * @used-by \Df\Payment\W\Strategy\ConfirmPending::_handle()
+	 * @return bool
+	 */
+	function isSuccessful() {return 'OK' === $this->r('RESULT');}
+
+	/**
+	 * 2018-09-28
+	 * @override
+	 * @see \Df\StripeClone\W\Event::k_pidSuffix()
+	 * @used-by \Df\StripeClone\W\Event::k_pid()
+	 * @return string
+	 */
+	protected function k_pidSuffix() {return Reader::ID;}
+
+	/**
+	 * 2018-09-28 The data have a flat structure.
+	 * @override
+	 * @see \Df\StripeClone\W\Event::roPath()
+	 * @used-by \Df\StripeClone\W\Event::k_pid()
+	 * @used-by \Df\StripeClone\W\Event::ro()
 	 * @return null
 	 */
-	protected function k_idE() {return Reader::ID;}
+	protected function roPath() {return null;}
 
 	/**
 	 * 2018-09-28
 	 * @override
-	 * @see \Df\Payment\W\Event::k_pid()
-	 * @used-by \Df\Payment\W\Event::pid()
+	 * @see \Df\StripeClone\W\Event::ttCurrent()
+	 * @used-by \Df\StripeClone\W\Nav::id()
+	 * @used-by \Df\Payment\W\Strategy\ConfirmPending::_handle()
 	 * @return string
 	 */
-	protected function k_pid() {return Reader::ID;}
-	
+	function ttCurrent() {return self::T_CAPTURE;}
+
 	/**
-	 * 2018-09-27
-	 * This method is never used: @see validate()
+	 * 2018-09-28
 	 * @override
-	 * @see \Df\PaypalClone\W\Event::k_signature()
+	 * @see \Df\StripeClone\W\Event::ttParent()
+	 * @used-by \Df\StripeClone\W\Nav::pidAdapt()
+	 * @see \Dfe\TBCBank\Init\Action::transId()
 	 * @return string
 	 */
-	protected function k_signature() {return null;}
-
-	/**
-	 * 2018-09-27
-	 * @override
-	 * @see \Df\PaypalClone\W\Event::k_status()
-	 * @used-by \Df\PaypalClone\W\Event::status()
-	 * @return string|null
-	 */
-	protected function k_status() {return 'RESULT';}
-
-	/**
-	 * 2018-09-27
-	 * @override
-	 * @see \Df\PaypalClone\W\Event::validate()
-	 * @used-by \Df\Payment\W\Handler::handle()
-	 */
-	function validate() {}
+	function ttParent() {return self::T_INIT;}
 }

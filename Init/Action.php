@@ -27,6 +27,7 @@ final class Action extends \Df\Payment\Init\Action {
 	 * @see \Df\Payment\Init\Action::transId()
 	 * @used-by \Df\Payment\Init\Action::action()
 	 * @used-by action()
+	 * @see \Dfe\TBCBank\W\Event::ttParent()
 	 * @return string|null
 	 */
 	protected function transId() {return $this->e2i($this->transIdE(), Ev::T_INIT);}

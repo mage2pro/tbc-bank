@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\TBCBank;
 // 2018-09-26
-final class Method extends \Df\PaypalClone\Method {
+final class Method extends \Df\Payment\Method {
 	/**
 	 * 2018-09-26
 	 * @override
