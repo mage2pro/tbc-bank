@@ -15,6 +15,15 @@ final class Event extends \Df\PaypalClone\W\Event {
 	/**
 	 * 2018-09-27
 	 * @override
+	 * @see \Df\PaypalClone\W\Event::k_status()
+	 * @used-by \Df\PaypalClone\W\Event::status()
+	 * @return string|null
+	 */
+	protected function k_status() {return 'RESULT';}
+
+	/**
+	 * 2018-09-27
+	 * @override
 	 * @see \Df\PaypalClone\W\Event::validate()
 	 * @used-by \Df\Payment\W\Handler::handle()
 	 */
