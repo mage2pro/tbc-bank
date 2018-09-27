@@ -11,4 +11,12 @@ final class Event extends \Df\PaypalClone\W\Event {
 	 * @return string
 	 */
 	protected function k_signature() {return null;}
+
+	/**
+	 * 2018-09-27
+	 * @override
+	 * @see \Df\PaypalClone\W\Event::validate()
+	 * @used-by \Df\Payment\W\Handler::handle()
+	 */
+	function validate() {}
 }
