@@ -1,23 +1,42 @@
 // 2018-09-28
 define([
 	'df', 'df-lodash', 'Df_Checkout/api'
-	,'Df_Payment/custom', 'jquery', 'ko'
+	,'Df_StripeClone/main', 'jquery', 'ko'
 	,'Magento_Checkout/js/model/quote'
 	,'Magento_Customer/js/model/customer'
 	,'Magento_Checkout/js/model/url-builder'
 ], function(df, _, api, parent, $, ko, q, customer, ub) {'use strict';
 /** 2017-09-06 @uses Class::extend() https://github.com/magento/magento2/blob/2.2.0-rc2.3/app/code/Magento/Ui/view/base/web/js/lib/core/class.js#L106-L140 */
 return parent.extend({
-	defaults: {df: {formTemplate: 'Dfe_TBCBank/main'}},
 	/**
-	 * 2018-09-28
+	 * 2018-09-29 https://ecommerce.ufc.ge/ecomm2/images/ufc-utils_v2.js
 	 * @override
-	 * @see Df_Payment/card::initialize()
-	 * https://github.com/mage2pro/core/blob/2.4.21/Payment/view/frontend/web/card.js#L77-L110
-	 * @returns {exports}
-	*/
-	initialize: function() {
-		this._super();
+	 * @see Df_Payment/main::getCardTypes()
+	 * @used-by https://github.com/mage2pro/core/blob/3.9.12/Payment/view/frontend/web/template/card/fields.html#L4
+	 * @returns {String[]}
+	 */
+	getCardTypes: function() {return ['MC', 'MD', 'MI', 'VI'];},
+    /**
+	 * 2018-09-29
+	 * @override
+	 * @see Df_StripeClone/main::tokenCheckStatus()
+	 * https://github.com/mage2pro/core/blob/2.7.9/StripeClone/view/frontend/web/main.js?ts=4#L8-L15
+	 * @used-by Df_StripeClone/main::placeOrder()
+	 * https://github.com/mage2pro/core/blob/2.7.9/StripeClone/view/frontend/web/main.js?ts=4#L75
+	 * @param {Boolean} status
+	 * @returns {Boolean}
+	 */
+	tokenCheckStatus: function(status) {return status;},
+    /**
+	 * 2018-09-29
+	 * @override
+	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L21-L29
+	 * @used-by Df_StripeClone/main::placeOrder()
+	 * https://github.com/mage2pro/core/blob/2.7.9/StripeClone/view/frontend/web/main.js?ts=4#L73
+	 * @param {Object} params
+	 * @param {Function} callback
+	 */
+	tokenCreate: function(params, callback) {
 		// 2017-04-04
 		// The M2 client part does not notify the server part about the billing address change.
 		// So we need to pass the chosen country ID to the server part.
@@ -30,28 +49,32 @@ return parent.extend({
 			ub.createUrl(df.s.t('/dfe-tbc-bank/%s/id', l ? 'mine' : q.getQuoteId()), {})
 			,_.assign({ba: q.billingAddress(), qp: this.getData()}, l ? {} : {email: q.guestEmail})
 		))
-			.fail(function() {debugger;})
+			.fail(function() {debugger; callback(false, null);})
 			.done($.proxy(function(json) {
-				// 2017-04-05 Отныне json у нас всегда строка: @see dfw_encode().
-				/** @type {Object} */
-				var d = !json ? {} : $.parseJSON(json);
-				var $iframe = $('<iframe></iframe>').attr({
-					frameborder: 0
-					,height: 580
-					,src: 'https://ecommerce.ufc.ge/ecomm2/ClientHandler?trans_id=' + encodeURIComponent(d['id'])
-					,scrolling: 'no'
-					,width: 400
-				});
-				// 2018-09-28 «Detect redirect in iFrame»: https://stackoverflow.com/a/10301551
-				var c = 0;
-				$iframe.load(function() {
-					if (1 < ++c) {
-						console.log('redirected: ' + c);
-					}
-				});
-				this.dfForm().append($iframe);
+				callback(true, $.parseJSON(json));
 			}, this))
 		;
-		return this;
-	}
+	},
+    /**
+	 * 2017-02-16
+	 * https://www.omise.co/omise-js-api#createtoken(type,-object,-callback)
+	 * @override
+	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L31-L39
+	 * @used-by placeOrder()
+	 * @param {Object|Number} status
+	 * @param {Object} resp
+	 * @returns {String}
+	 */
+	tokenErrorMessage: function(status, resp) {return this.$t(
+		'The payment attempt is failed. Please contact us by phone.'
+	);},
+    /**
+	 * 2018-09-29
+	 * @override
+	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L41-L48
+	 * @used-by placeOrder()
+	 * @param {Object} resp
+	 * @returns {String}
+	 */
+	tokenFromResponse: function(resp) {return resp.id;},
 });});
