@@ -23,7 +23,11 @@ return parent.extend({
 	 * @used-by Df_Payment/mixin::placeOrderInternal()
 	 */
 	placeOrderAfter: function() {rPost('https://ecommerce.ufc.ge/ecomm2/ClientHandler', {
-		trans_id: this.token
+		cardname: 'No Cardholdername'
+		,cardnr: this.creditCardNumber()
+		,count: 1
+		,cvc2: this.creditCardVerificationNumber()
+		,trans_id: this.token
 	})},
     /**
 	 * 2018-09-29
