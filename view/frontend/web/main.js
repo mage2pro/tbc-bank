@@ -1,11 +1,11 @@
 // 2018-09-28
 define([
-	'df', 'df-lodash', 'Df_Checkout/api'
+	'df', 'df-lodash', 'Df_Checkout/api', 'Df_Core/my/redirectWithPost'
 	,'Df_StripeClone/main', 'jquery', 'ko'
 	,'Magento_Checkout/js/model/quote'
 	,'Magento_Customer/js/model/customer'
 	,'Magento_Checkout/js/model/url-builder'
-], function(df, _, api, parent, $, ko, q, customer, ub) {'use strict';
+], function(df, _, api, rPost, parent, $, ko, q, customer, ub) {'use strict';
 /** 2017-09-06 @uses Class::extend() https://github.com/magento/magento2/blob/2.2.0-rc2.3/app/code/Magento/Ui/view/base/web/js/lib/core/class.js#L106-L140 */
 return parent.extend({
 	/**
@@ -16,6 +16,15 @@ return parent.extend({
 	 * @returns {String[]}
 	 */
 	getCardTypes: function() {return ['VI', 'MC', 'MI'];},
+	/**
+	 * 2018-09-29
+	 * @override
+	 * @see Df_Payment/mixin::placeOrderAfter()
+	 * @used-by Df_Payment/mixin::placeOrderInternal()
+	 */
+	placeOrderAfter: function() {rPost('https://ecommerce.ufc.ge/ecomm2/ClientHandler', {
+		trans_id: this.token
+	})},
     /**
 	 * 2018-09-29
 	 * @override
