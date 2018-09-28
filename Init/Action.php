@@ -18,7 +18,7 @@ final class Action extends \Df\Payment\Init\Action {
 	 * @return string
 	 */
 	protected function redirectUrl() {return
-		"https://ecommerce.ufc.ge/ecomm2/ClientHandler?trans_id=" . urlencode($this->transIdE())
+		'https://ecommerce.ufc.ge/ecomm2/ClientHandler?trans_id=' . urlencode($this->transIdE())
 	;}
 
 	/**

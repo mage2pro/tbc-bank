@@ -7,7 +7,7 @@ final class CheckResult extends \Dfe\TBCBank\T\CaseT {
 	function t00() {}
 
 	/**
-	 * @test 2018-09-27
+	 * 2018-09-27
 	 * A response looks like:
 	 * «RESULT: OK
 	 * RESULT_CODE: 000
