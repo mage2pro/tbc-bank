@@ -2,7 +2,7 @@
 namespace Dfe\TBCBank;
 // 2018-09-26
 /** @method static Settings s() */
-final class Settings extends \Df\Payment\Settings {
+final class Settings extends \Df\Payment\Settings\BankCard {
 	/**
 	 * 2018-09-26
 	 * @override
