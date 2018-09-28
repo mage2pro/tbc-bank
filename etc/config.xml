@@ -10,7 +10,7 @@
 				<country_restriction>whitelist</country_restriction>
 				<currency>GEL</currency>
 				<description>{store.domain} // {customer.name} // {order.id}</description>
-				<requireBillingAddress>1</requireBillingAddress>
+				<requireBillingAddress>0</requireBillingAddress>
 				<title>TBC Bank</title>
 				<title_backend>TBC Bank</title_backend>
 			</tbc_bank>
