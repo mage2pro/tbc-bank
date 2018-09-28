@@ -15,7 +15,7 @@ return parent.extend({
 	 * @used-by https://github.com/mage2pro/core/blob/3.9.12/Payment/view/frontend/web/template/card/fields.html#L4
 	 * @returns {String[]}
 	 */
-	getCardTypes: function() {return ['MC', 'MD', 'MI', 'VI'];},
+	getCardTypes: function() {return ['VI', 'MC', 'MI'];},
     /**
 	 * 2018-09-29
 	 * @override

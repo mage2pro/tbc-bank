@@ -10,6 +10,13 @@
 			</argument>
 		</arguments>
 	</type>
+	<type name='Magento\Payment\Model\CcGenericConfigProvider'>
+		<arguments>
+			<argument name='methodCodes' xsi:type='array'>
+				<item name='dfe_tbc_bank' xsi:type='string'>dfe_tbc_bank</item>
+			</argument>
+		</arguments>
+	</type>
 	<virtualType name='Dfe\TBCBank\ConfigProvider' type='Df\StripeClone\ConfigProvider'>
 		<arguments><argument name='module' xsi:type='string'>Dfe_TBCBank</argument></arguments>
 	</virtualType>		
