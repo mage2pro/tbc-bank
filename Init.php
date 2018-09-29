@@ -42,7 +42,7 @@ final class Init {
 	 */
 	private function p() {
 		/** @var array(string => mixed) $p */
-		df_customer_session()->setDfeTBCParams(df_json_encode($p = Charge::p()));
+		df_customer_session()->setDfeTBCParams($p = Charge::p());
 		return dfw_encode(['id' => substr(Api::p($p), -28)]);
 	}
 }

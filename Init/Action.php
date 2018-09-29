@@ -15,7 +15,7 @@ final class Action extends \Df\Payment\Init\Action {
 	 * @used-by \Df\Payment\Init\Action::action()
 	 * @return array(string => mixed)
 	 */
-	protected function redirectParams() {return df_json_decode(df_customer_session()->getDfeTBCParams());}
+	protected function redirectParams() {return df_customer_session()->getDfeTBCParams();}
 
 	/**
 	 * 2018-09-26

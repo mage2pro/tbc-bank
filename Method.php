@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank;
+use Df\Payment\Token;
 // 2018-09-26
 final class Method extends \Df\Payment\Method {
 	/**
@@ -10,6 +11,15 @@ final class Method extends \Df\Payment\Method {
 	 * @return null
 	 */
 	protected function amountLimits() {return null;}
+
+	/**
+	 * 2018-09-29
+	 * @override
+	 * @see \Df\Payment\Method::iiaKeys()
+	 * @used-by \Df\Payment\Method::assignData()
+	 * @return string[]
+	 */
+	protected function iiaKeys() {return [Token::KEY];}
 
 	/**
 	 * 2018-09-26

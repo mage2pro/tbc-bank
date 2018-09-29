@@ -28,6 +28,8 @@ return parent.extend({
 		,count: 1
 		,cvc2: this.creditCardVerificationNumber()
 		,trans_id: this.token
+		,validMONTH: this.creditCardExpMonth2()
+		,validYEAR: this.creditCardExpYear2()
 	})},
     /**
 	 * 2018-09-29
