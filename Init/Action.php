@@ -1,9 +1,7 @@
 <?php
 namespace Dfe\TBCBank\Init;
+use Df\Payment\Token;
 use Df\Payment\W\Event as Ev;
-use Dfe\TBCBank\Api;
-use Dfe\TBCBank\Charge;
-use Dfe\TBCBank\Method as M;
 /**
  * 2018-09-26
  * @method \Dfe\TBCBank\Method m()
@@ -11,15 +9,22 @@ use Dfe\TBCBank\Method as M;
  */
 final class Action extends \Df\Payment\Init\Action {
 	/**
+	 * 2018-09-29
+	 * @override
+	 * @see \Df\Payment\Init\Action::redirectParams()
+	 * @used-by \Df\Payment\Init\Action::action()
+	 * @return array(string => mixed)
+	 */
+	protected function redirectParams() {return df_json_decode(df_customer_session()->getDfeTBCParams());}
+
+	/**
 	 * 2018-09-26
 	 * @override
 	 * @see \Df\Payment\Init\Action::redirectUrl()
 	 * @used-by \Df\Payment\Init\Action::action()
 	 * @return string
 	 */
-	protected function redirectUrl() {return
-		'https://ecommerce.ufc.ge/ecomm2/ClientHandler?trans_id=' . urlencode($this->transIdE())
-	;}
+	protected function redirectUrl() {return 'https://ecommerce.ufc.ge/ecomm2/ClientHandler';}
 
 	/**
 	 * 2018-09-26 A string like «HOjPnNRq9KHNDKVnomSQUtShijw=».
@@ -30,21 +35,5 @@ final class Action extends \Df\Payment\Init\Action {
 	 * @see \Dfe\TBCBank\W\Event::ttParent()
 	 * @return string|null
 	 */
-	protected function transId() {return $this->e2i($this->transIdE(), Ev::T_INIT);}
-
-	/**
-	 * 2018-09-26
-	 * @used-by redirectUrl()
-	 * @used-by transId()
-	 * @return string
-	 */
-	private function transIdE() {return dfc($this, function() {
-		/** @var M $m */ /** @var array(string => mixed) $req */
-		df_sentry_extra($m = $this->m(), 'Request Params', $req = Charge::p($m));
-		$m->iiaSetTRR($req);
-		// 2018-09-26
-		// The server responds with a string like «TRANSACTION_ID: HOjPnNRq9KHNDKVnomSQUtShijw=».
-		// A transaction ID always contains 28 characters.
-		return substr(Api::p($req), -28);
-	});}
+	protected function transId() {return $this->e2i(Token::get($this->m()->ii()), Ev::T_INIT);}
 }

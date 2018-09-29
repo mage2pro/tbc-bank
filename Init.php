@@ -19,13 +19,10 @@ final class Init {
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 * @return string
 	 */
-	function guest($cartId, $email, IQP $qp, IQA $ba = null) {return dfw_encode([
-		'id' => Session::init()
-	]);}
+	function guest($cartId, $email, IQP $qp, IQA $ba = null) {return $this->p();}
 
 	/**
-	 * 2017-04-04
-	 * 2017-04-20
+	 * 2018-09-28
 	 * $qp в поле @see \Magento\Framework\DataObject::_data содержит код способа оплаты,
 	 * а также ту дополнительную информацию, которую передала клиентская часть модуля оплаты.
 	 * Например: [additional_data => [], method => "dfe_klarna"].
@@ -35,7 +32,17 @@ final class Init {
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 * @return string
 	 */
-	function registered($cartId, IQP $qp, IQA $ba = null) {return dfw_encode([
-		'id' => Session::init()
-	]);}
+	function registered($cartId, IQP $qp, IQA $ba = null) {return $this->p();}
+
+	/**
+	 * 2018-09-29
+	 * @used-by guest()
+	 * @used-by registered()
+	 * @return string
+	 */
+	private function p() {
+		/** @var array(string => mixed) $p */
+		df_customer_session()->setDfeTBCParams(df_json_encode($p = Charge::p()));
+		return dfw_encode(['id' => substr(Api::p($p), -28)]);
+	}
 }
