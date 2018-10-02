@@ -1,8 +1,8 @@
 This extension integrates a Magento 2 based webstore with [TBC Bank](http://www.tbcbank.ge) (Georgia).
 
 ## How to buy
-The extension is not released yet, so there is no way to buy it just now.  
-The extension will be released before **2018-10-01**.     
+You can buy it with PayPal [here](https://mage2.pro/t/5651).  
+There are [local payment options](http://magento-forum.ru/topic/1003) available to Russia-based customers. 
 
 ## How to install
 ### 1. Free installation service
