@@ -11,6 +11,7 @@ Just order my [free installation service](https://mage2.pro/t/3585).
 ### 2. Self-installation
 ```
 bin/magento maintenance:enable
+composer clear-cache
 composer require mage2pro/tbc-bank:*
 bin/magento setup:upgrade
 rm -rf var/di var/generation generated/code && bin/magento setup:di:compile
@@ -22,6 +23,7 @@ If you have problems with these commands, please check the [detailed instruction
 ## How to update
 ```
 bin/magento maintenance:enable
+composer clear-cache
 composer update mage2pro/tbc-bank
 bin/magento setup:upgrade
 rm -rf var/di var/generation generated/code && bin/magento setup:di:compile
