@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank\W;
+use Df\Payment\Init\Action;
 use Dfe\TBCBank\Api;
 // 2018-09-27
 final class Reader extends \Df\Payment\W\Reader {
@@ -31,7 +32,12 @@ final class Reader extends \Df\Payment\W\Reader {
 			$r += df_parse_colon(Api::p([
 				// 2018-09-26 «client’s IP address, mandatory (15 characters)»
 				'client_ip_addr' => df_visitor_ip()
-				,'command' => 'c'
+				/**
+				 * 2018-10-06
+				 * The same information is duplicated by the @see \Dfe\TBCBank\Charge::pCharge() method
+				 * in the `msg_type` parameter.
+				 */
+				,'command' => Action::sg($this->m())->preconfiguredToCapture() ? 'c' : 'a'
 				,self::ID => $t
 			]));
 		}

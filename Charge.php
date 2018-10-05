@@ -14,11 +14,33 @@ final class Charge extends \Df\Payment\Charge {
 		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
 		,'client_ip_addr' => df_visitor_ip()
 		 // 2018-09-26 «identifies a request for transaction registration»
-		,'command' => Action::sg($this->m())->preconfiguredToCapture() ? 'v' : 'a'
+		,'command' => 'v'
 		// 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
 		,'currency' => df_currency_num($this->currencyC())
 		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
-		,'msg_type' => 'SMS' // 2018-09-26 «STUB»
+		/**
+		 * 2018-10-06
+		 * «SMS» means «Single Message System» (the «preauthorize and capture» action).
+		 * «DMS» means «Dual Message System» (the «preauthorize only» action).
+		 *
+		 * «Procedure for processing transactions in one stage is called Single Message System (SMS).
+		 * When using this system, withdrawal of funds from buyer’s card is done in 1 operation:
+		 * request for authorization sent to issuer bank
+		 * at the same time constitutes a financial confirmation of the payment.
+		 * Therefore when acquirer bank receives a signal via payment system
+		 * that authorization is confirmed, transaction is considered closed.
+		 *
+		 * Two-stage technology to process a transaction, known as Dual Message System (DMS),
+		 * is slightly different from the first option.
+		 * This system separates authorization from settlements as different software procedures.
+		 * Preauth procedure that blocks the necessary amount on a client’s card account,
+		 * and Capture procedure that debits the account may be apart for 7 to 28 days.»
+		 * https://www.linkedin.com/pulse/sms-dms-procedure-process-transaction-ramalingom-sundaram-pillai
+		 *
+		 * The same information is duplicated by the @see \Dfe\TBCBank\W\Reader::reqFilter() method
+		 * in the `command` parameter.
+		 */
+		,'msg_type' => Action::sg($this->m())->preconfiguredToCapture() ? 'SMS' : 'DMS'
 	];}
 
 	/**
