@@ -56,7 +56,7 @@ So the `sortOrder` value is 1920. -->
 					dfRows='5'
 					id='certificate'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='6'
+					sortOrder='3'
 					translate='label'
 					type='Df\Framework\Form\Element\Textarea'
 				>
@@ -70,7 +70,7 @@ So the `sortOrder` value is 1920. -->
 				<field
 					id='password'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='7'
+					sortOrder='4'
 					translate='label'
 					type='obscure'
 				>
@@ -81,6 +81,18 @@ So the `sortOrder` value is 1920. -->
 						<field id='enable'>1</field>
 					</depends>
 					<validate>required-entry</validate>
+				</field>
+				<field
+					id='action'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='5'
+					translate='label'
+					type='select'
+				>
+					<label>Payment Action</label>
+					<source_model>Df\Payment\Source\AC</source_model>
+					<comment><![CDATA[]]></comment>
+					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
 					id='description'

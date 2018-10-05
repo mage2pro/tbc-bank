@@ -6,6 +6,7 @@
     <default>
 		<df_payment>
 			<tbc_bank>
+				<action>authorize_capture</action>
 				<countries>GE</countries>
 				<country_restriction>whitelist</country_restriction>
 				<currency>GEL</currency>
