@@ -15,8 +15,7 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	}
 
 	/**
-	 * 2018-09-26
-	 * https://stackoverflow.com/a/11038338
+	 * 2018-09-26 https://stackoverflow.com/a/11038338
 	 * @used-by \Dfe\TBCBank\Api::p()
 	 * @return string
 	 */
