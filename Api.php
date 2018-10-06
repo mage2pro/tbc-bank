@@ -4,6 +4,7 @@ namespace Dfe\TBCBank;
 final class Api {
 	/**       
 	 * 2018-09-27
+	 * @used-by \Dfe\TBCBank\Method::charge()
 	 * @used-by \Dfe\TBCBank\T\CaseT\CheckResult::t01()
 	 * @used-by \Dfe\TBCBank\T\CaseT\Init::transId()
 	 * @used-by \Dfe\TBCBank\W\Reader::reqFilter()

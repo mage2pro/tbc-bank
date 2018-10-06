@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank;
+use Df\Payment\TM;
 use Df\Payment\Token;
 use Df\Payment\W\Event as Ev;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
@@ -44,6 +45,14 @@ final class Method extends \Df\Payment\Method {
 	 * @return bool
 	 */
 	function canCapture() {return true;}
+
+	/**
+	 * 2018-10-06
+	 * @override
+	 * @see \Df\Payment\Method::canCapturePartial()
+	 * @return bool
+	 */
+	function canCapturePartial() {return true;}
 
 	/**
 	 * 2018-10-06
@@ -98,6 +107,17 @@ final class Method extends \Df\Payment\Method {
 		df_sentry_extra($this, 'Parent Transaction ID', $txnId = $tPrev->getTxnId()); /** @var string $txnId */
 		df_sentry_extra($this, 'Charge ID', $tid = $this->tid()->i2e($txnId, true)); /** @var string $tid */
 		//$this->transInfo(fBankCard::s()->capture($a));
+		$tm = df_tm($this); /** @var TM $tm */
+		$res = df_parse_colon(Api::p($req = [
+			// 2018-09-26 «client’s IP address, mandatory (15 characters)»
+			'amount' => $this->amountFormat($a)
+			,'auth_id' => $txnId
+			,'client_ip_addr' => $tm->req('client_ip_addr')
+			,'command' => 't'
+			,'currency' => $this->cPayment()
+		]));
+		dfp_report($this, $res, 'capture');
+		$this->iiaSetTRR($req, $res);
 		// 2016-12-16
 		// Система в этом сценарии по-умолчанию формирует идентификатор транзации как
 		// «<идентификатор родительской транзации>-capture».
