@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank\W;
+use Df\Payment\Init\Action as A;
 // 2018-09-27
 final class Event extends \Df\StripeClone\W\Event {
 	/**
@@ -38,7 +39,9 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @used-by \Df\Payment\W\Strategy\ConfirmPending::_handle()
 	 * @return string
 	 */
-	function ttCurrent() {return self::T_CAPTURE;}
+	function ttCurrent() {return
+		A::sg($this->m())->preconfiguredToCapture() ? self::T_CAPTURE : self::T_AUTHORIZE
+	;}
 
 	/**
 	 * 2018-09-28
