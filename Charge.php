@@ -8,13 +8,13 @@ final class Charge extends \Df\Payment\Charge {
 	 * 2018-09-27
 	 * @return array(string => mixed)
 	 */
-	private function pCharge() {return [
+	private function pCharge() {$c = Action::sg($this->m())->preconfiguredToCapture(); return [
 		// 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		'amount' => $this->amountF()
 		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
 		,'client_ip_addr' => df_visitor_ip()
 		 // 2018-09-26 «identifies a request for transaction registration»
-		,'command' => 'v'
+		,'command' => $c ? 'v' : 'a'
 		// 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
 		,'currency' => df_currency_num($this->currencyC())
 		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
@@ -36,11 +36,8 @@ final class Charge extends \Df\Payment\Charge {
 		 * Preauth procedure that blocks the necessary amount on a client’s card account,
 		 * and Capture procedure that debits the account may be apart for 7 to 28 days.»
 		 * https://www.linkedin.com/pulse/sms-dms-procedure-process-transaction-ramalingom-sundaram-pillai
-		 *
-		 * The same information is duplicated by the @see \Dfe\TBCBank\W\Reader::reqFilter() method
-		 * in the `command` parameter.
 		 */
-		,'msg_type' => Action::sg($this->m())->preconfiguredToCapture() ? 'SMS' : 'DMS'
+		,'msg_type' => $c ? 'SMS' : 'DMS'
 	];}
 
 	/**
