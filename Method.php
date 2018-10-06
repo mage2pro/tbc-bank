@@ -111,7 +111,7 @@ final class Method extends \Df\Payment\Method {
 		$res = df_parse_colon(Api::p($req = [
 			// 2018-09-26 «client’s IP address, mandatory (15 characters)»
 			'amount' => $this->amountFormat($a)
-			,'auth_id' => $tid
+			,'trans_id' => $tid
 			,'client_ip_addr' => $tm->req('client_ip_addr')
 			,'command' => 't'
 			,'currency' => df_currency_num($this->cPayment())
