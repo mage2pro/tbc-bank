@@ -20,7 +20,7 @@
 	<virtualType name='Dfe\TBCBank\ConfigProvider' type='Df\StripeClone\ConfigProvider'>
 		<arguments><argument name='module' xsi:type='string'>Dfe_TBCBank</argument></arguments>
 	</virtualType>		
-	<virtualType name='Dfe\TBCBank\Controller\CustomerReturn\Index' type='Df\Payment\W\Action'/>
+	<virtualType name='Dfe\TBCBank\Controller\Index\Index' type='Df\Payment\W\Action'/>
 	<virtualType name='Dfe\TBCBank\W\Handler' type='Df\PaypalClone\W\Handler'/>
 	<virtualType name='Dfe\TBCBank\W\Nav' type='Df\StripeClone\W\Nav'/>
 </config>
