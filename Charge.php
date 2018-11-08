@@ -17,7 +17,8 @@ final class Charge extends \Df\Payment\Charge {
 		,'command' => $c ? 'v' : 'a'
 		// 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
 		,'currency' => df_currency_num($this->currencyC())
-		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
+		// 2018-09-26 «transaction details, optional (up to 125 characters)»
+		,'description' => $this->description()
 		/**
 		 * 2018-10-06
 		 * «SMS» means «Single Message System» (the «preauthorize and capture» action).
