@@ -83,9 +83,23 @@ So the `sortOrder` value is 1920. -->
 					<validate>required-entry</validate>
 				</field>
 				<field
-					id='action'
+					id='tokenization'
 					showInDefault='1' showInStore='1' showInWebsite='1'
 					sortOrder='5'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+				>
+					<label>Enable Tokenization?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<comment><![CDATA[<p class='df-note'>If enabled, a customer will be able to re-use his previously used bank cards without re-entering their credentials.<br/>It is called «Tokenization», you can learn more about it in the following articles:</p><ul class='df-note'><li><a href='https://en.wikipedia.org/wiki/Tokenization_(data_security)' target='_blank'>en.wikipedia.org/wiki/Tokenization_(data_security)</a></li><li><a href='https://squareup.com/townsquare/what-does-tokenization-actually-mean' target='_blank'>squareup.com/townsquare/what-does-tokenization-actually-mean</a></li><li><a href='https://squareup.com/pos/card-on-file' target='_blank'>squareup.com/pos/card-on-file</a></li><li><a href='https://stripe.com/docs/saving-cards' target='_blank'>stripe.com/docs/saving-cards</a></li></ul><p class='df-note'><b>Before enabling this feature here in the module, you should request the TBC Bank staff to enable it for your TBC Bank account.</b><br/>Please send a letter to ecommerce@ufc.ge with a request: «Please enable "Regular Payments" for my merchant account», and specify your account number (a 7-digits number like «5301475»).</p>]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+					</depends>
+				</field>
+				<field
+					id='action'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='6'
 					translate='label'
 					type='select'
 				>
@@ -97,7 +111,7 @@ So the `sortOrder` value is 1920. -->
 				<field
 					id='description'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='8'
+					sortOrder='7'
 					translate='label'
 					type='textarea'
 				>
@@ -114,7 +128,7 @@ because the value can contain variables, so do not know the real length here. --
 				<field
 					id='min_order_total'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='19'
+					sortOrder='8'
 					translate='label'
 					type='text'
 				>
@@ -126,7 +140,7 @@ because the value can contain variables, so do not know the real length here. --
 				<field
 					id='max_order_total'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='20'
+					sortOrder='9'
 					translate='label'
 					type='text'
 				>
@@ -138,7 +152,7 @@ because the value can contain variables, so do not know the real length here. --
 				<field
 					id='country_restriction'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='21'
+					sortOrder='10'
 					translate='label'
 					type='select'
 				>
@@ -149,7 +163,7 @@ because the value can contain variables, so do not know the real length here. --
 				<field
 					id='countries'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='22'
+					sortOrder='11'
 					translate='label'
 					type='Df\Framework\Form\Element\Multiselect'
 				>
