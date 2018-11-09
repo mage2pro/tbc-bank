@@ -4,10 +4,10 @@ use Dfe\TBCBank\Api;
 use Zend_Http_Client as Z;
 // 2018-09-26
 final class Init extends \Dfe\TBCBank\T\CaseT {
-	/** 2018-09-26 */
+	/** @test 2018-09-26 */
 	function t00() {}
 
-	/** @test 2018-09-26 */
+	/** 2018-09-26 */
 	function t01() {echo $this->transId();}
 
 	/** 2018-09-26 */
