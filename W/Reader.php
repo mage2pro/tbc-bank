@@ -1,7 +1,6 @@
 <?php
 namespace Dfe\TBCBank\W;
-use Df\Payment\Init\Action;
-use Dfe\TBCBank\Api;
+use \Dfe\TBCBank\API\Facade as F;
 // 2018-09-27
 final class Reader extends \Df\Payment\W\Reader {
 	/**
@@ -13,36 +12,14 @@ final class Reader extends \Df\Payment\W\Reader {
 	 * @return array(string => mixed)
 	 */
 	protected function reqFilter(array $r) {
-		if ($t = dfa($r, self::ID)) {  /** @var string $t */
+		if ($t = dfa($r, Event::TID)) {  /** @var string $t */
 			/**
-			 * 2018-09-27
-			 * A response looks like:
-			 *	[
-			 *		"RESULT: OK",
-			 *		"RESULT_CODE: 000",
-			 *		"3DSECURE: AUTHENTICATED",
-			 *		"RRN: 827016795306",
-			 *		"APPROVAL_CODE: 228017",
-			 *		"CARD_NUMBER: 5***********1988"
-			 *	]
 			 * 2018-09-28
 			 * I use `+=` to preserve `trans_id` in the result.
 			 * It is @used-by \Dfe\TBCBank\W\Event::k_pid()
 			 */
-			$r += df_parse_colon(Api::p([
-				// 2018-09-26 «client’s IP address, mandatory (15 characters)»
-				'client_ip_addr' => df_visitor_ip()
-				,'command' => 'c'
-				,self::ID => $t
-			]));
+			$r += F::s()->check($t);
 		}
 		return $r;
 	}
-
-	/**
-	 * 2018-09-28
-	 * @used-by reqFilter()
-	 * @used-by \Dfe\TBCBank\W\Event::k_pidSuffix()
-	 */
-	const ID = 'trans_id';
 }

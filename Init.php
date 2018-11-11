@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank;
+use Dfe\TBCBank\API\Facade as F;
 use Magento\Quote\Api\Data\AddressInterface as IQA;
 use Magento\Quote\Api\Data\PaymentInterface as IQP;
 use Magento\Quote\Model\Quote\Address as QA;
@@ -41,8 +42,7 @@ final class Init {
 	 * @return string
 	 */
 	private function p() {
-		/** @var array(string => mixed) $p */
-		df_customer_session()->setDfeTBCParams($p = Charge::p());
-		return dfw_encode(['id' => substr(Api::p($p), -28)]);
+		df_customer_session()->setDfeTBCParams($p = Charge::p()); /** @var array(string => mixed) $p */
+		return dfw_encode(['id' => F::s()->init($p)]);
 	}
 }

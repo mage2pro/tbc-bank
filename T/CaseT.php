@@ -5,6 +5,7 @@ namespace Dfe\TBCBank\T;
  * @see \Dfe\TBCBank\T\CaseT\CheckResult
  * @see \Dfe\TBCBank\T\CaseT\Init
  * @see \Dfe\TBCBank\T\CaseT\Regular
+ * @see \Dfe\TBCBank\T\CaseT\Validator
  * @method \Dfe\TBCBank\Method m()
  * @method \Dfe\TBCBank\Settings s()
  */

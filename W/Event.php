@@ -19,7 +19,7 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @used-by \Df\StripeClone\W\Event::k_pid()
 	 * @return string
 	 */
-	protected function k_pidSuffix() {return Reader::ID;}
+	protected function k_pidSuffix() {return self::TID;}
 
 	/**
 	 * 2018-09-28 The data have a flat structure.
@@ -52,4 +52,11 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @return string
 	 */
 	function ttParent() {return self::T_INIT;}
+
+	/**
+	 * 2018-09-28
+	 * @used-by k_pidSuffix()
+	 * @used-by \Dfe\TBCBank\API\Facade::check()
+	 */
+	const TID = 'trans_id';
 }

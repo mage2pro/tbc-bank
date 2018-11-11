@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\TBCBank\T\CaseT;
-use Dfe\TBCBank\Api;
+use Dfe\TBCBank\API\Facade as F;
 use Zend_Http_Client as Z;
 // 2018-09-26
 final class Init extends \Dfe\TBCBank\T\CaseT {
@@ -28,6 +28,18 @@ final class Init extends \Dfe\TBCBank\T\CaseT {
 
 	/** 2018-09-26 */
 	function t03() {echo df_currency_num('GEL') . ' ' . gettype(df_currency_num('GEL'));}
+	
+	/** 2018-11-11 */
+	function t04() {echo F::s()->init([
+		// 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
+		'amount' => 100
+		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
+		,'client_ip_addr' => df_visitor_ip()
+		,'command1' => 'v'
+		,'currency' => 981 // 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
+		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
+		,'msg_type' => 'SMS'
+	]);}
 
 	/**
 	 * 2018-09-26
@@ -35,7 +47,7 @@ final class Init extends \Dfe\TBCBank\T\CaseT {
 	 * @used-by t02()
 	 * @return string
 	 */
-	private function transId() {return substr(Api::p([
+	private function transId() {return F::s()->init([
 		// 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		'amount' => 100
 		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
@@ -43,6 +55,6 @@ final class Init extends \Dfe\TBCBank\T\CaseT {
 		,'command' => 'v'
 		,'currency' => 981 // 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
 		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
-		,'msg_type' => 'SMS' // 2018-09-26 «STUB»
-	]), -28);}
+		,'msg_type' => 'SMS'
+	]);}
 }
