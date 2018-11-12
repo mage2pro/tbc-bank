@@ -1,85 +1,82 @@
 <?php
 namespace Dfe\TBCBank\Facade;
-// 2018-11-09
+// 2018-11-12
 final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
-	 * 2018-11-09
+	 * 2018-11-12
 	 * @used-by \Df\StripeClone\Facade\Card::create()
 	 * @param array(string => mixed) $p
 	 */
 	function __construct($p) {$this->_p = $p;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::brand()
-	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @used-by \Df\StripeClone\CardFormatter::label()
-	 * @return string
+	 * @return null
 	 */
-	function brand() {return $this->_p['brand'];}
+	function brand() {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::country()
-	 * @used-by \Df\StripeClone\CardFormatter::country()
 	 * @return null
 	 */
 	function country() {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::expMonth()
-	 * @used-by \Df\StripeClone\CardFormatter::exp()
-	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @return int
+	 * @return null
 	 */
-	function expMonth() {return $this->_p['month'];}
+	function expMonth() {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::expYear()
-	 * @used-by \Df\StripeClone\CardFormatter::exp()
-	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @return int
+	 * @return null
 	 */
-	function expYear() {return $this->_p['year'];}
+	function expYear() {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::id()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
-	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()   
-	 * @used-by \Dfe\Stripe\Method::cardType()
+	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
 	 * @return string
 	 */
-	function id() {return $this->_p['id'];}
+	function id() {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::last4()
-	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @used-by \Df\StripeClone\CardFormatter::label()
 	 * @return string
 	 */
-	function last4() {return $this->_p['last4'];}
+	function last4() {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-12 A string like «5***********1223».
+	 * @override
+	 * @see \Df\StripeClone\Facade\ICard::last4()
+	 * @return string
+	 */
+	function numberMasked() {return dfa($this->_p, 'CARD_NUMBER');}
+
+	/**
+	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::owner()
-	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return null
 	 */
-	function owner() {return $this->_p['name'];}
+	function owner() {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-12
 	 * @var array(string => string)
 	 */
 	private $_p;
