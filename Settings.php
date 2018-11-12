@@ -4,9 +4,8 @@ namespace Dfe\TBCBank;
 /** @method static Settings s() */
 final class Settings extends \Df\Payment\Settings\BankCard {
 	/**
-	 * 2018-09-26
+	 * 2018-09-26 https://stackoverflow.com/a/11038338
 	 * @override
-	 * https://stackoverflow.com/a/11038338
 	 */
 	function __destruct() {
 		if ($this->_file) {
@@ -40,6 +39,13 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	 * @return string
 	 */
 	function publicKey() {return null;}
+
+	/**
+	 * 2018-11-13 «Enable Tokenization?»
+	 * @used-by \Dfe\TBCBank\Init\Action::preconfigured()
+	 * @return string
+	 */
+	function tokenization() {return $this->b();}
 
 	/**
 	 * 2018-09-26

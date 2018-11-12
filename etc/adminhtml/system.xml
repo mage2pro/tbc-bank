@@ -91,7 +91,7 @@ So the `sortOrder` value is 1920. -->
 				>
 					<label>Enable Tokenization?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
-					<comment><![CDATA[<p class='df-note'>If enabled, a customer will be able to re-use his previously used bank cards without re-entering their credentials.<br/>It is called «Tokenization», you can learn more about it in the following articles:</p><ul class='df-note'><li><a href='https://en.wikipedia.org/wiki/Tokenization_(data_security)' target='_blank'>en.wikipedia.org/wiki/Tokenization_(data_security)</a></li><li><a href='https://squareup.com/townsquare/what-does-tokenization-actually-mean' target='_blank'>squareup.com/townsquare/what-does-tokenization-actually-mean</a></li><li><a href='https://squareup.com/pos/card-on-file' target='_blank'>squareup.com/pos/card-on-file</a></li><li><a href='https://stripe.com/docs/saving-cards' target='_blank'>stripe.com/docs/saving-cards</a></li></ul><p class='df-note'><b>Before enabling this feature here in the module, you should request the TBC Bank staff to enable it for your TBC Bank account.</b><br/>Please send a letter to ecommerce@ufc.ge with a request: «Please enable "Regular Payments" for my merchant account», and specify your account number (a 7-digits number like «5301475»).</p>]]></comment>
+					<comment><![CDATA[<p class='df-note'>If enabled, a customer will be able to re-use his previously used bank cards without re-entering their credentials.<br/>It is called «Tokenization», you can learn more about it in the following articles:</p><ul class='df-note'><li><a href='https://en.wikipedia.org/wiki/Tokenization_(data_security)' target='_blank'>en.wikipedia.org/wiki/Tokenization_(data_security)</a></li><li><a href='https://squareup.com/townsquare/what-does-tokenization-actually-mean' target='_blank'>squareup.com/townsquare/what-does-tokenization-actually-mean</a></li><li><a href='https://squareup.com/pos/card-on-file' target='_blank'>squareup.com/pos/card-on-file</a></li><li><a href='https://stripe.com/docs/saving-cards' target='_blank'>stripe.com/docs/saving-cards</a></li></ul><p class='df-note'><b>Before enabling this feature here in the module, you should request the TBC Bank staff to enable it for your TBC Bank account.</b><br/>Please send a letter to ecommerce@ufc.ge with a request: «Please enable "Regular Payments" for my merchant account», and specify your account number (a 7-digits number like «5301475»).</p><p class='df-note'>TBC Bank does not support the DMS mode for regular payments: that is why the «<b>Payment Action</b>» option here in the module is not available if the «<b>Enable Tokenization?</b>» option is enabled, and the payment action will always be «<b>Capture</b>» in this case.</p>]]></comment>
 					<depends>
 						<field id='enable'>1</field>
 					</depends>
@@ -106,7 +106,10 @@ So the `sortOrder` value is 1920. -->
 					<label>Payment Action</label>
 					<source_model>Df\Payment\Source\AC</source_model>
 					<comment><![CDATA[]]></comment>
-					<depends><field id='enable'>1</field></depends>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='tokenization'>0</field>
+					</depends>
 				</field>
 				<field
 					id='description'

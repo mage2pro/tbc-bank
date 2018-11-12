@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank\Init;
+use Df\Payment\Source\AC;
 use Df\Payment\Token;
 use Df\Payment\W\Event as Ev;
 /**
@@ -8,6 +9,16 @@ use Df\Payment\W\Event as Ev;
  * @method \Dfe\TBCBank\Settings s()
  */
 final class Action extends \Df\Payment\Init\Action {
+	/**
+	 * 2018-11-13
+	 * @override
+	 * @see \Df\Payment\Init\Action::preconfigured()
+	 * @used-by \Df\Payment\Init\Action::action()
+	 * @used-by \Df\Payment\Init\Action::preconfiguredToCapture()
+	 * @return string
+	 */
+	protected function preconfigured() {return $this->s()->tokenization() ? AC::C : parent::preconfigured();}
+
 	/**
 	 * 2018-09-29
 	 * @override
