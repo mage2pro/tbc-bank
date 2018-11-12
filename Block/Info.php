@@ -31,7 +31,11 @@ class Info extends \Df\StripeClone\Block\Info {
 	final protected function prepare() {
 		parent::prepare();
 		if ($e = $this->tm()->responseF()) { /** @var E $e */
-			$this->siEx(['Retrieval Reference Number (RRN)' => $e->r('RRN')]);
+			$this->siEx([
+				'Payment Status' => $e->paymentStatus()
+				,'3D-Secure Status' => $e->_3dsStatus()
+				,'Retrieval Reference Number (RRN)' => $e->rrn()
+			]);
 		}
 	}
 

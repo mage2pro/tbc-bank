@@ -4,13 +4,38 @@ use Df\Payment\Init\Action as A;
 // 2018-09-27
 final class Event extends \Df\StripeClone\W\Event {
 	/**
+	 * 2018-11-12
+	 * @override
+	 * @used-by \Dfe\TBCBank\Block\Info::prepare()
+	 * @return string
+	 */
+	function _3dsStatus() {return $this->r('3DSECURE');}
+
+	/**
 	 * 2018-09-28
 	 * @override
 	 * @see \Df\Payment\W\Event::isSuccessful()
 	 * @used-by \Df\Payment\W\Strategy\ConfirmPending::_handle()
 	 * @return bool
 	 */
-	function isSuccessful() {return 'OK' === $this->r('RESULT');}
+	function isSuccessful() {return 'OK' === $this->paymentStatus();}
+
+	/**
+	 * 2018-11-12
+	 * @override
+	 * @used-by isSuccessful()
+	 * @used-by \Dfe\TBCBank\Block\Info::prepare()
+	 * @return string
+	 */
+	function paymentStatus() {return $this->r('RESULT');}
+
+	/**
+	 * 2018-11-12
+	 * @override
+	 * @used-by \Dfe\TBCBank\Block\Info::prepare()
+	 * @return int|null
+	 */
+	function rrn() {return ($r = $this->r('RRN')) ? intval($r) : $r;}
 
 	/**
 	 * 2018-09-28
