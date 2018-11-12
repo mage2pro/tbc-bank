@@ -11,6 +11,8 @@ use Df\Payment\W\Event as Ev;
 final class Action extends \Df\Payment\Init\Action {
 	/**
 	 * 2018-11-13
+	 * TBC Bank does not support the DMS mode for regular payments:
+	 * https://mail.google.com/mail/u/0/#inbox/QgrcJHsNhNPHshCbgtCsSfmsVNWmgJnxvgV
 	 * @override
 	 * @see \Df\Payment\Init\Action::preconfigured()
 	 * @used-by \Df\Payment\Init\Action::action()
