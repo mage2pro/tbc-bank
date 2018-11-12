@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank\Block;
+use Dfe\TBCBank\W\Event as E;
 // 2018-11-12
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class Info extends \Df\StripeClone\Block\Info {
@@ -20,6 +21,19 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @return string
 	 */
 	protected function cardNumberLabel() {return 'Card Number';}
+
+	/**
+	 * 2018-11-12
+	 * @override
+	 * @see \Df\StripeClone\Block\Info::prepare()
+	 * @used-by \Df\Payment\Block\Info::prepareToRendering()
+	 */
+	final protected function prepare() {
+		parent::prepare();
+		if ($e = $this->tm()->responseF()) { /** @var E $e */
+			$this->siEx(['Retrieval Reference Number (RRN)' => $e->r('RRN')]);
+		}
+	}
 
 	/**
 	 * 2018-11-12       
