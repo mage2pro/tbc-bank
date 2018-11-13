@@ -52,7 +52,7 @@ final class Charge extends \Df\Payment\Charge {
 			// формируется с помощью Merchant ID ТСП и значения указанного biller_client_id идентификатора.»
 			// Mandatory.
 			// https://mage2.pro/t/5740
-			'biller_client_id' => ''
+			'biller_client_id' => df_uid(10)
 			// 2018-11-13
 			// «Предельный срок действия регулярного платежа в формате ММГГ»
 			// Mandatory.
@@ -63,7 +63,6 @@ final class Charge extends \Df\Payment\Charge {
 			// Mandatory.
 			// https://mage2.pro/t/5740
 			,'perspayee_gen' => 1
-
 		]);
 	}
 
