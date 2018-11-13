@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\TBCBank\Facade;
-use \Dfe\TBCBank\W\Event as E;
+use Dfe\TBCBank\W\Event as E;
 // 2018-11-12
 final class Card extends \Df\StripeClone\Facade\Card {
 	/**
@@ -70,7 +70,7 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * @see \Df\StripeClone\Facade\Card::last4()
 	 * @return string
 	 */
-	function numberMasked() {return dfa($this->_p, 'CARD_NUMBER');}
+	function numberMasked() {return dfa($this->_p, E::CARD_NUMBER);}
 
 	/**
 	 * 2018-11-12
@@ -86,7 +86,7 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * @used-by expYear()
 	 * @return string
 	 */
-	private function exp() {return strval(dfa($this->_p, 'RECC_PMNT_EXPIRY'));}
+	private function exp() {return strval(dfa($this->_p, E::CARD_EXP));}
 
 	/**
 	 * 2018-11-12

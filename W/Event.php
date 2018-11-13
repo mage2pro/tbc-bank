@@ -95,6 +95,21 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * 2018-11-13
 	 * @used-by cardId()
 	 * @used-by \Dfe\TBCBank\Facade\Card::id()
+	 * @used-by \Dfe\TBCBank\W\Strategy\ConfirmPending::onSuccess()
 	 */
 	const CARD_ID = 'RECC_PMNT_ID';
+
+	/**
+	 * 2018-11-14
+	 * @used-by \Dfe\TBCBank\Facade\Card::exp()
+	 * @used-by \Dfe\TBCBank\W\Strategy\ConfirmPending::onSuccess()
+	 */
+	const CARD_EXP = 'RECC_PMNT_EXPIRY';
+
+	/**
+	 * 2018-11-14
+	 * @used-by \Dfe\TBCBank\Facade\Card::numberMasked()
+	 * @used-by \Dfe\TBCBank\W\Strategy\ConfirmPending::onSuccess()
+	 */
+	const CARD_NUMBER = 'CARD_NUMBER';
 }

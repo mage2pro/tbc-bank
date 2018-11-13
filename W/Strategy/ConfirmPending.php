@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\TBCBank\W\Strategy;
-use \Dfe\TBCBank\W\Event as E;
+use Dfe\TBCBank\W\Event as E;
 /**
  * 2018-11-13
  * @used-by \Dfe\TBCBank\W\Handler::strategyC()
@@ -16,7 +16,7 @@ final class ConfirmPending extends \Df\Payment\W\Strategy\ConfirmPending {
 	function onSuccess() {
 		$e = $this->e(); /** @var E $e */
 		if ($id = $e->cardId()) { /** @var string $id */
-			df_ci_save($this, [$id => $e->r(['CARD_NUMBER', 'RECC_PMNT_EXPIRY'])]);
+			df_ci_save($this, [$id => $e->r([E::CARD_NUMBER, E::CARD_EXP, E::CARD_ID])]);
 		}
 	}
 }

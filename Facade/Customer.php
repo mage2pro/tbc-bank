@@ -1,36 +1,35 @@
 <?php
 namespace Dfe\TBCBank\Facade;
-use Df\API\Operation;
 // 2018-11-09
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
-	 * 2018-11-09
+	 * 2018-11-14
+	 * It is never used because the TBCBank module does not use @see \Df\StripeClone\Payer::newCard()
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
-	 * @used-by \Df\StripeClone\Payer::newCard()
-	 * @param Operation $c
+	 * @param object $c
 	 * @param string $token
-	 * @return string
+	 * @return null
 	 */
 	function cardAdd($c, $token) {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-14
+	 * It is never used because the TBCBank module does not use @see \Df\StripeClone\Payer::newCard()
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::create()
-	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param array(string => mixed) $p
-	 * @return Operation
+	 * @return null
 	 */
 	function create(array $p) {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-14
+	 * It is never used because the TBCBank module does not use @see \Df\StripeClone\Payer::newCard()
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::id()
-	 * @used-by \Df\StripeClone\Payer::newCard()
-	 * @param Operation $c
-	 * @return string
+	 * @param object $c
+	 * @return null
 	 */
 	function id($c) {return null;}
 
@@ -59,13 +58,13 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	protected function _get($id) {return $id;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-14
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardsData()
 	 * @used-by \Df\StripeClone\Facade\Customer::cards()
-	 * @param Operation $c
+	 * @param array(string => mixed) $c
 	 * @return \Dfe\TBCBank\Facade\Card[]
 	 * @see \Dfe\Stripe\Facade\Charge::cardData()
 	 */
-	protected function cardsData($c) {return [];}
+	protected function cardsData($c) {return $c;}
 }
