@@ -22,15 +22,17 @@ return parent.extend({
 	 * @see Df_Payment/mixin::placeOrderAfter()
 	 * @used-by Df_Payment/mixin::placeOrderInternal()
 	 */
-	placeOrderAfter: function() {rPost('https://ecommerce.ufc.ge/ecomm2/ClientHandler', {
-		cardname: 'No Cardholdername'
-		,cardnr: this.creditCardNumber()
-		,count: 1
-		,cvc2: this.creditCardVerificationNumber()
-		,trans_id: this.token
-		,validMONTH: this.creditCardExpMonth2()
-		,validYEAR: this.creditCardExpYear2()
-	})},
+	placeOrderAfter: function() {!this.isNewCardChosen() ? this._super({}) :
+		rPost('https://ecommerce.ufc.ge/ecomm2/ClientHandler', {
+			cardname: 'No Cardholdername'
+			,cardnr: this.creditCardNumber()
+			,count: 1
+			,cvc2: this.creditCardVerificationNumber()
+			,trans_id: this.token
+			,validMONTH: this.creditCardExpMonth2()
+			,validYEAR: this.creditCardExpYear2()
+		})
+	},
     /**
 	 * 2018-09-29
 	 * @override
