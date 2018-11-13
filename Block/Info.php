@@ -8,7 +8,7 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Block\Info::cardData()
-	 * @used-by \Df\StripeClone\Block\Info::prepare()
+	 * @used-by \Df\StripeClone\Block\Info::cf()
 	 * @return array(string => mixed)
 	 */
 	protected function cardData() {return ($ev = $this->tm()->responseF()) ? $ev->r() : [];}
@@ -35,6 +35,7 @@ class Info extends \Df\StripeClone\Block\Info {
 				'Payment Status' => $e->paymentStatus()
 				,'3D-Secure Status' => $e->_3dsStatus()
 				,'Retrieval Reference Number (RRN)' => $e->rrn()
+				,'Card ID' => $this->cf()->c()->id()
 			]);
 		}
 	}

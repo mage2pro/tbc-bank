@@ -26,30 +26,32 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	function country() {return null;}
 
 	/**
-	 * 2018-11-12
+	 * 2018-11-13
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::expMonth()
-	 * @return null
+	 * @used-by \Df\StripeClone\CardFormatter::exp()
+	 * @return string
 	 */
-	function expMonth() {return null;}
+	function expMonth() {return substr($this->exp(), 0, 2);}
 
 	/**
-	 * 2018-11-12
+	 * 2018-11-13
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::expYear()
-	 * @return null
+	 * @used-by \Df\StripeClone\CardFormatter::exp()
+	 * @return string
 	 */
-	function expYear() {return null;}
+	function expYear() {return substr($this->exp(), -2);}
 
 	/**
-	 * 2018-11-12
+	 * 2018-11-13 The `RECC_PMNT_EXPIRY` value is present only if tokenization is enabled
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::id()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
 	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
 	 * @return string
 	 */
-	function id() {return null;}
+	function id() {return dfa($this->_p, 'RECC_PMNT_ID');}
 
 	/**
 	 * 2018-11-12
@@ -76,7 +78,18 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	function owner() {return null;}
 
 	/**
+	 * 2018-11-13 The `RECC_PMNT_EXPIRY` value is present only if tokenization is enabled.
+	 * @used-by expMonth()
+	 * @used-by expYear()
+	 * @return string
+	 */
+	private function exp() {return strval(dfa($this->_p, 'RECC_PMNT_EXPIRY'));}
+
+	/**
 	 * 2018-11-12
+	 * @used-by exp()
+	 * @used-by id()
+	 * @used-by numberMasked()
 	 * @var array(string => string)
 	 */
 	private $_p;
