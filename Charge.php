@@ -57,7 +57,7 @@ final class Charge extends \Df\Payment\Charge {
 			// «Предельный срок действия регулярного платежа в формате ММГГ»
 			// Mandatory.
 			// https://mage2.pro/t/5740
-			,'expiry' => '1299'
+			,'perspayee_expiry' => '1299'
 			// 2018-11-13
 			// «Используется для генерации нового шаблона регулярного (рекуррентного) платежа»
 			// Mandatory.
