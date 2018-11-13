@@ -31,6 +31,7 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Card::expMonth()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
+	 * @used-by \Df\StripeClone\Facade\Card::isActive()
 	 * @return int|null
 	 */
 	function expMonth() {return !($e = $this->exp()) ? null : intval(substr($e, 0, 2));}
@@ -40,6 +41,7 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Card::expYear()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
+	 * @used-by \Df\StripeClone\Facade\Card::isActive()
 	 * @return int|null
 	 */
 	function expYear() {return !($e = $this->exp()) ? null : 2000 + intval(substr($e, -2));}

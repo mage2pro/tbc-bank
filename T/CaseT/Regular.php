@@ -21,6 +21,9 @@ final class Regular extends \Dfe\TBCBank\T\CaseT {
 	 */
 	function t03() {echo intval('02');}
 
+	/** 2018-11-13 */
+	function t04() {echo df_json_encode([df_year(), df_month()]);}
+
 	/**
 	 * 2018-11-09
 	 * @used-by t01()
