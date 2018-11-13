@@ -2,7 +2,7 @@
 namespace Dfe\TBCBank\Facade;
 use \Dfe\TBCBank\W\Event as E;
 // 2018-11-12
-final class Card implements \Df\StripeClone\Facade\ICard {
+final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2018-11-12
 	 * @used-by \Df\StripeClone\Facade\Card::create()
@@ -13,7 +13,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2018-11-12
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::brand()
+	 * @see \Df\StripeClone\Facade\Card::brand()
 	 * @return null
 	 */
 	function brand() {return null;}
@@ -21,7 +21,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2018-11-12
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::country()
+	 * @see \Df\StripeClone\Facade\Card::country()
 	 * @return null
 	 */
 	function country() {return null;}
@@ -29,7 +29,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2018-11-13
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::expMonth()
+	 * @see \Df\StripeClone\Facade\Card::expMonth()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
 	 * @return string
 	 */
@@ -38,7 +38,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2018-11-13
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::expYear()
+	 * @see \Df\StripeClone\Facade\Card::expYear()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
 	 * @return string
 	 */
@@ -47,7 +47,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2018-11-13 The `RECC_PMNT_EXPIRY` value is present only if tokenization is enabled
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::id()
+	 * @see \Df\StripeClone\Facade\Card::id()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
 	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
 	 * @return string
@@ -57,7 +57,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2018-11-12
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::last4()
+	 * @see \Df\StripeClone\Facade\Card::last4()
 	 * @return string
 	 */
 	function last4() {return null;}
@@ -65,7 +65,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2018-11-12 A string like «5***********1223».
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::last4()
+	 * @see \Df\StripeClone\Facade\Card::last4()
 	 * @return string
 	 */
 	function numberMasked() {return dfa($this->_p, 'CARD_NUMBER');}
@@ -73,7 +73,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2018-11-12
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::owner()
+	 * @see \Df\StripeClone\Facade\Card::owner()
 	 * @return null
 	 */
 	function owner() {return null;}
