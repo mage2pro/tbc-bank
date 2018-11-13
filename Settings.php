@@ -42,6 +42,7 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 
 	/**
 	 * 2018-11-13 «Enable Tokenization?»
+	 * @used-by \Dfe\TBCBank\Charge::pCharge()
 	 * @used-by \Dfe\TBCBank\Init\Action::preconfigured()
 	 * @return string
 	 */
