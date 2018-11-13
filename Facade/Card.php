@@ -27,22 +27,22 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	function country() {return null;}
 
 	/**
-	 * 2018-11-13
+	 * 2018-11-13 intval('02') => 2
 	 * @override
 	 * @see \Df\StripeClone\Facade\Card::expMonth()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
-	 * @return string
+	 * @return int|null
 	 */
-	function expMonth() {return substr($this->exp(), 0, 2);}
+	function expMonth() {return !($e = $this->exp()) ? null : intval(substr($e, 0, 2));}
 
 	/**
 	 * 2018-11-13
 	 * @override
 	 * @see \Df\StripeClone\Facade\Card::expYear()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
-	 * @return string
+	 * @return int|null
 	 */
-	function expYear() {return substr($this->exp(), -2);}
+	function expYear() {return !($e = $this->exp()) ? null : 2000 + intval(substr($e, -2));}
 
 	/**
 	 * 2018-11-13 The `RECC_PMNT_EXPIRY` value is present only if tokenization is enabled

@@ -9,11 +9,17 @@ final class Regular extends \Dfe\TBCBank\T\CaseT {
 	/** 2018-11-09 */
 	function t01() {echo __METHOD__ . ': ' . $this->transId();}
 
-	/** @test 2018-11-13 */
+	/** 2018-11-13 */
 	function t02() {echo df_json_encode(df_extend(
 		['TBCBank' => ['1111' => ['a' => 'b']]]
 		,['TBCBank' => ['2222' => ['c' => 'd']]]
 	));}
+
+	/**
+	 * 2018-11-13
+	 * intval('02') => 2
+	 */
+	function t03() {echo intval('02');}
 
 	/**
 	 * 2018-11-09
