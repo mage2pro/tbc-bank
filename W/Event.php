@@ -12,6 +12,13 @@ final class Event extends \Df\StripeClone\W\Event {
 	function _3dsStatus() {return $this->r('3DSECURE');}
 
 	/**
+	 * 2018-11-13
+	 * @used-by \Dfe\TBCBank\W\Strategy\ConfirmPending::onSuccess()
+	 * @return string|null
+	 */
+	function cardId() {return $this->r(self::CARD_ID);}
+
+	/**
 	 * 2018-09-28
 	 * @override
 	 * @see \Df\Payment\W\Event::isSuccessful()
@@ -84,4 +91,10 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @used-by \Dfe\TBCBank\API\Facade::check()
 	 */
 	const TID = 'trans_id';
+	/**
+	 * 2018-11-13
+	 * @used-by cardId()
+	 * @used-by \Dfe\TBCBank\Facade\Card::id()
+	 */
+	const CARD_ID = 'RECC_PMNT_ID';
 }

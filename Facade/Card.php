@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank\Facade;
+use \Dfe\TBCBank\W\Event as E;
 // 2018-11-12
 final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
@@ -51,7 +52,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
 	 * @return string
 	 */
-	function id() {return dfa($this->_p, 'RECC_PMNT_ID');}
+	function id() {return dfa($this->_p, E::CARD_ID);}
 
 	/**
 	 * 2018-11-12

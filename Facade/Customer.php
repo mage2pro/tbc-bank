@@ -35,14 +35,28 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	function id($c) {return null;}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-13
+	 * $id has the following structure in out case:
+	 *	{
+	 *		"4349958401": {
+	 *			"CARD_NUMBER": "5***********1223",
+	 *			"RECC_PMNT_EXPIRY": "1019"
+	 *		},
+	 *		"1779958449": {
+	 *			"CARD_NUMBER": "4***********3333",
+	 *			"RECC_PMNT_EXPIRY": "1120"
+	 *		}
+	 *	}
+	 * The top-level keys are bank card tokens here, and their values form the corresponding bank card labels.
+	 * So the TBCBank module (unlike the rest modules) does not do any API requests
+	 * to retrieve a customer's saved cards.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::_get()
 	 * @used-by \Df\StripeClone\Facade\Customer::get()
-	 * @param int $id
-	 * @return Operation|null
+	 * @param array(string => mixed) $id
+	 * @return array(string => mixed)
 	 */
-	protected function _get($id) {return null;}
+	protected function _get($id) {return $id;}
 
 	/**
 	 * 2018-11-09
