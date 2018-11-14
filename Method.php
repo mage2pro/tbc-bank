@@ -22,6 +22,16 @@ final class Method extends \Df\StripeClone\Method {
 	protected function amountLimits() {return null;}
 
 	/**
+	 * 2018-11-14
+	 * @override
+	 * @see \Df\StripeClone\Method::chargeNewParams()
+	 * @used-by \Df\StripeClone\Method::chargeNew()
+	 * @param bool $capture
+	 * @return array(string => mixed)
+	 */
+	protected function chargeNewParams($capture) {return [];}
+
+	/**
 	 * 2018-09-29
 	 * @override
 	 * @see \Df\Payment\Method::iiaKeys()
