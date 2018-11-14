@@ -14,7 +14,9 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @used-by \Df\API\Client::_p()
 	 * @return string|null
 	 */
-	function long() {return df_preg_prefix('error: ', df_trim($this->r()));}
+	function long() {return $this->r('error') ?: ('FAILED' !== $this->r('RESULT') ? null : (
+		(string)__(($c = $this->r('RESULT_CODE')) ? "Dfe_TBCBank_R_$c" : 'An unknown error occured')
+	));}
 
 	/**
 	 * 2018-11-11

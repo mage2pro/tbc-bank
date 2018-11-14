@@ -11,8 +11,13 @@ final class Client extends \Df\API\Client {
 	 */
 	protected function _construct() {
 		parent::_construct();
-		// 2018-11-11 A response with a transaction ID looks like «TRANSACTION_ID: rm2opABtitnKMNPjcybjvAQ5H9g=».
-		$this->addFilterResAV(function($v) {return df_preg_prefix('TRANSACTION_ID: ', $v) ?: df_parse_colon($v);});
+		// 2018-11-14
+		// A response looks like:
+		// «TRANSACTION_ID: jiqiowN8jjPx5+8+BLfZwv3PAhs=
+		// RESULT: FAILED
+		// RESULT_CODE: 102»
+		// It contains newlines.
+		$this->addFilterResBV('df_parse_colon'); /** @uses df_parse_colon() */
 	}
 
 	/**
