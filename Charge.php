@@ -84,7 +84,8 @@ final class Charge extends \Df\Payment\Charge {
 	static function p(Method $m = null) {return (new self($m ?: dfpm(__CLASS__)))->pCharge();}
 
 	/**
-	 * 2018-11-14
+	 * 2018-11-14 It is used only for repetitive payments via previously saved bank cards.
+	 * @used-by \Dfe\TBCBank\Method::chargeNewParams()
 	 * @param Method $m
 	 * @return array(string => mixed)
 	 */

@@ -23,7 +23,7 @@ final class Method extends \Df\StripeClone\Method {
 	protected function amountLimits() {return null;}
 
 	/**
-	 * 2018-11-14
+	 * 2018-11-14 It is used only for repetitive payments via previously saved bank cards.
 	 * @override
 	 * @see \Df\StripeClone\Method::chargeNewParams()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
