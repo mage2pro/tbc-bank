@@ -77,7 +77,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * It always consists of 10 characters.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::tokenIsNew()
-	 * @used-by \Df\StripeClone\Payer::tokenIsNew()
+	 * @used-by \Dfe\TBCBank\Init\Action::isRecurring()
 	 * @param string $id
 	 * @return bool
 	 */

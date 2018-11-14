@@ -1,8 +1,8 @@
 <?php
 namespace Dfe\TBCBank\Init;
 use Df\Payment\Source\AC;
-use Df\Payment\Token;
 use Df\Payment\W\Event as Ev;
+use Df\StripeClone\Facade\Charge as FCharge;
 /**
  * 2018-09-26
  * @method \Dfe\TBCBank\Method m()
@@ -37,16 +37,27 @@ final class Action extends \Df\Payment\Init\Action {
 	 * @used-by \Df\Payment\Init\Action::action()
 	 * @return string
 	 */
-	protected function redirectUrl() {return 'https://ecommerce.ufc.ge/ecomm2/ClientHandler';}
+	protected function redirectUrl() {return $this->isRecurring() ? null :
+		'https://ecommerce.ufc.ge/ecomm2/ClientHandler'
+	;}
 
 	/**
 	 * 2018-09-26 A string like «HOjPnNRq9KHNDKVnomSQUtShijw=».
 	 * @override
 	 * @see \Df\Payment\Init\Action::transId()
 	 * @used-by \Df\Payment\Init\Action::action()
-	 * @used-by action()
 	 * @see \Dfe\TBCBank\W\Event::ttParent()
 	 * @return string|null
 	 */
-	protected function transId() {return $this->e2i(Token::get($this->m()->ii()), Ev::T_INIT);}
+	protected function transId() {return $this->isRecurring() ? null : $this->e2i($this->token(), Ev::T_INIT);}
+
+	/**
+	 * 2018-11-14
+	 * @used-by redirectUrl()
+	 * @used-by transId()
+	 * @return bool
+	 */
+	private function isRecurring() {return dfc($this, function() {return
+		!FCharge::s($this->m())->tokenIsNew($this->token())
+	;});}
 }
