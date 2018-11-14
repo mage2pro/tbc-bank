@@ -61,6 +61,6 @@ final class Client extends \Df\API\Client {
 		// 2018-11-11 «Path to a PEM encoded SSL certificate»
 		,'sslpassphrase' => $s->password()
 		// 2018-11-11 «SSL transport layer (eg. 'sslv2', 'tls')»
-		,'ssltransport' => 'tls'
+		,'ssltransport' => 'tlsv1.2'
 	];}
 }
