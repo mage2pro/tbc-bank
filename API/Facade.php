@@ -63,5 +63,5 @@ final class Facade extends \Df\API\Facade {
 	 * @return string
 	 * @throws DFE
 	 */
-	private function postAndReturnId(array $p) {return $this->post($p)[0];}
+	private function postAndReturnId(array $p) {return $this->post($p)['TRANSACTION_ID'];}
 }
