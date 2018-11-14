@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\TBCBank;
 use Df\Payment\Token;
+use Dfe\TBCBank\API\Facade as F;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
 // 2018-09-26
 final class Method extends \Df\StripeClone\Method {
@@ -29,7 +30,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @param bool $capture
 	 * @return array(string => mixed)
 	 */
-	protected function chargeNewParams($capture) {return [];}
+	protected function chargeNewParams($capture) {return F::s()->post(Charge::pNew($this))->a();}
 
 	/**
 	 * 2018-09-29
