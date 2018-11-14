@@ -24,14 +24,14 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	]);}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-14 It is used only for repetitive payments via previously saved bank cards.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
 	 * @return Operation
 	 */
-	function create(array $p) {return null;}
+	function create(array $p) {return F::s()->post($p);}
 
 	/**
 	 * 2018-11-09
