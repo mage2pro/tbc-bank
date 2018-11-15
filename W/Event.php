@@ -51,7 +51,7 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @used-by \Df\StripeClone\W\Event::k_pid()
 	 * @return string
 	 */
-	protected function k_pidSuffix() {return self::TID;}
+	protected function k_pidSuffix() {return 'trans_id';}
 
 	/**
 	 * 2018-09-28 The data have a flat structure.
@@ -84,13 +84,6 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @return string
 	 */
 	function ttParent() {return self::T_INIT;}
-
-	/**
-	 * 2018-09-28
-	 * @used-by k_pidSuffix()
-	 * @used-by \Dfe\TBCBank\API\Facade::check()
-	 */
-	const TID = 'trans_id';
 	/**
 	 * 2018-11-13
 	 * @used-by cardId()
@@ -112,4 +105,10 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @used-by \Dfe\TBCBank\W\Strategy\ConfirmPending::onSuccess()
 	 */
 	const CARD_NUMBER = 'CARD_NUMBER';
+
+	/**
+	 * 2018-11-16
+	 * @used-by \Dfe\TBCBank\Facade\Charge::id()
+	 */
+	const TID = 'TRANSACTION_ID';
 }

@@ -22,7 +22,7 @@ final class Facade extends \Df\API\Facade {
 	 * @throws DFE
 	 */
 	function check($id) {return $this->post([
-		'client_ip_addr' => df_visitor_ip(), 'command' => 'c', Event::TID => $id
+		'client_ip_addr' => df_visitor_ip(), 'command' => 'c', 'trans_id' => $id
 	])->a();}
 
 	/**

@@ -2,6 +2,7 @@
 namespace Dfe\TBCBank\Facade;
 use Df\API\Operation;
 use Dfe\TBCBank\API\Facade as F;
+use Dfe\TBCBank\W\Event as Ev;
 // 2018-11-09
 /** @method \Dfe\TBCBank\Method m() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
@@ -34,14 +35,14 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function create(array $p) {return F::s()->post($p);}
 
 	/**
-	 * 2018-11-09
+	 * 2018-11-16
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param Operation $c
 	 * @return string
 	 */
-	function id($c) {return null;}
+	function id($c) {return $c[Ev::TID];}
 
 	/**
 	 * 2018-11-09
