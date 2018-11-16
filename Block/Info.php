@@ -11,7 +11,9 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @used-by \Df\StripeClone\Block\Info::cf()
 	 * @return array(string => mixed)
 	 */
-	protected function cardData() {return ($ev = $this->tm()->responseF()) ? $ev->r() : [];}
+	protected function cardData() {return dfc($this, function() {return
+		$this->ci() ?: (($ev = $this->tm()->responseF()) ? $ev->r() : [])
+	;});}
 	
 	/**
 	 * 2018-11-12
@@ -23,6 +25,16 @@ class Info extends \Df\StripeClone\Block\Info {
 	protected function cardNumberLabel() {return 'Card Number';}
 
 	/**
+	 * 2018-11-16
+	 * @override
+	 * @see \Df\Payment\Block\Info::ciId()
+	 * @used-by prepare()
+	 * @used-by \Df\Payment\Block\Info::ci();
+	 * @return string
+	 */
+	protected function ciId() {return $this->tm()->req('biller_client_id');}
+
+	/**
 	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Block\Info::prepare()
@@ -30,7 +42,16 @@ class Info extends \Df\StripeClone\Block\Info {
 	 */
 	final protected function prepare() {
 		parent::prepare();
-		if ($e = $this->tm()->responseF()) { /** @var E $e */
+		if ($this->ciId()) { /** @var string|null $cardId */
+			$r = $this->tm()->res0(); /** @var array(string => string) $r */
+			$this->siEx([
+				'Paid with a saved card' => 'yes'
+				,'Payment Status' => dfa($r, 'RESULT')
+				,'Retrieval Reference Number (RRN)' => dfa($r, 'RRN')
+				,'Approval Code' => dfa($r, 'APPROVAL_CODE')
+			]);
+		}
+		else if ($e = $this->tm()->responseF()) { /** @var E $e */
 			$this->siEx([
 				'Payment Status' => $e->paymentStatus()
 				,'3D-Secure Status' => $e->_3dsStatus()
