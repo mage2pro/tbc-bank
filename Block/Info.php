@@ -42,8 +42,8 @@ class Info extends \Df\StripeClone\Block\Info {
 	 */
 	final protected function prepare() {
 		parent::prepare();
-		if ($this->ciId()) { /** @var string|null $cardId */
-			$r = $this->tm()->res0(); /** @var array(string => string) $r */
+		 /** @var string|null $cardId */ /** @var array(string => string) $r */
+		if ($this->ciId() && ($r = $this->tm()->res0())) {
 			$this->siEx([
 				'Paid with a saved card' => 'yes'
 				,'Payment Status' => dfa($r, 'RESULT')
