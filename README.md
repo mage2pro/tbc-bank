@@ -2,6 +2,12 @@ This extension integrates a Magento 2 based webstore with [TBC Bank](http://www.
 
 ![](https://mage2.pro/uploads/default/original/2X/3/312d322286b2a474fb76ab5a539dfb14698a6497.png)
 
+![](https://mage2.pro/uploads/default/original/2X/0/0aaf74161960c5d37cdfb955421a5a586d72789a.png)
+
+![](https://mage2.pro/uploads/default/original/2X/8/8d11867a6f0b1e8920a9c5d342e24a1c7cfe5fb3.png)
+
+![](https://mage2.pro/uploads/default/original/2X/8/8070c57ea9dbc39570110b4a39a5c8998452b104.png)
+
 ## How to buy
 You can buy it with PayPal [here](https://mage2.pro/t/5651).  
 There are [local payment options](http://magento-forum.ru/topic/1003) available to Russia-based customers. 
