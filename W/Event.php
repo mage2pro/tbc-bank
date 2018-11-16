@@ -51,7 +51,7 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @used-by \Df\StripeClone\W\Event::k_pid()
 	 * @return string
 	 */
-	protected function k_pidSuffix() {return 'trans_id';}
+	protected function k_pidSuffix() {return self::TID_SHORT;}
 
 	/**
 	 * 2018-09-28 The data have a flat structure.
@@ -111,4 +111,11 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @used-by \Dfe\TBCBank\Facade\Charge::id()
 	 */
 	const TID = 'TRANSACTION_ID';
+
+	/**
+	 * 2018-11-16
+	 * @used-by k_pidSuffix()
+	 * @used-by \Dfe\TBCBank\W\Reader::reqFilter()
+	 */
+	const TID_SHORT = 'trans_id';
 }

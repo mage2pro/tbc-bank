@@ -12,7 +12,7 @@ final class Reader extends \Df\Payment\W\Reader {
 	 * @return array(string => mixed)
 	 */
 	protected function reqFilter(array $r) {
-		if ($t = dfa($r, Event::TID)) {  /** @var string $t */
+		if ($t = dfa($r, Event::TID_SHORT)) {  /** @var string $t */
 			/**
 			 * 2018-09-28
 			 * I use `+=` to preserve `trans_id` in the result.
