@@ -16,7 +16,9 @@ final class Charge extends \Df\Payment\Charge {
 	private function common() {return [
 		// 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		'amount' => $this->amountF()
-		// 2018-11-22 https://mail.google.com/mail/u/0/#inbox/KtbxLrjVmhsgbmXmbPwfTZjlgrJSSKJsVB
+		// 2018-11-22
+		// https://mail.google.com/mail/u/0/#inbox/KtbxLrjVmhsgbmXmbPwfTZjlgrJSSKJsVB
+		// https://www.upwork.com/messages/rooms/room_dedb1119e1f5f4d8e506b963f506d8e4/story_61f60dab05ae5325df50dbaaf6d28d03
 		,'biller' => $this->description()
 		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
 		,'client_ip_addr' => df_visitor_ip()
