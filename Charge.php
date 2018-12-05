@@ -8,6 +8,18 @@ use Df\Payment\Init\Action;
  */
 final class Charge extends \Df\Payment\Charge {
 	/**
+	 * 2018-12-05
+	 * «If a customer name has any non latin characters description stays completely empty»:
+	 * https://github.com/mage2pro/tbc-bank/issues/2
+	 * @override
+	 * @see \Df\Payment\Charge::textFilter()
+	 * @used-by \Df\Payment\Charge::text()
+	 * @param string $s
+	 * @return string
+	 */
+	protected function textFilter($s) {return df_translit($s);}
+
+	/**
 	 * 2018-11-14
 	 * @used-by pCharge()
 	 * @used-by pNew()
