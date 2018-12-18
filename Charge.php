@@ -42,6 +42,7 @@ final class Charge extends \Df\Payment\Charge {
 
 	/**
 	 * 2018-09-27
+	 * @used-by p()
 	 * @return array(string => mixed)
 	 */
 	private function pCharge() {
