@@ -55,7 +55,7 @@ final class Client extends \Df\API\Client {
 	 * @used-by \Df\API\Client::__construct()
 	 * @return array(string => mixed)
 	 */
-	protected function zfConfig() {/** @var S $s */$s = dfps($this); return [
+	protected function zfConfig() {$s = dfps($this); /** @var S $s */ return [
 		// 2018-11-11 «Path to a PEM encoded SSL certificate»
 		'sslcert' => $s->certificate()
 		// 2018-11-11 «Path to a PEM encoded SSL certificate»
