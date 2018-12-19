@@ -89,6 +89,7 @@ final class Card extends \Df\StripeClone\Facade\Card {
 
 	/**
 	 * 2018-11-12
+	 * @used-by __construct()
 	 * @used-by exp()
 	 * @used-by id()
 	 * @used-by numberMasked()
