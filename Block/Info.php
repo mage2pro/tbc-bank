@@ -8,7 +8,7 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * 2018-11-12
 	 * @override
 	 * @see \Df\StripeClone\Block\Info::cardData()
-	 * @used-by \Df\StripeClone\Block\Info::cf()
+	 * @used-by \Df\StripeClone\Block\Info::card()
 	 * @return array(string => mixed)
 	 */
 	protected function cardData() {return dfc($this, function() {return
