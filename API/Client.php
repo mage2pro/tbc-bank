@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank\API;
+use Df\Payment\Settings\Proxy;
 use Dfe\TBCBank\Settings as S;
 // 2018-11-09
 final class Client extends \Df\API\Client {
@@ -18,6 +19,19 @@ final class Client extends \Df\API\Client {
 		// RESULT_CODE: 102»
 		// It contains newlines.
 		$this->addFilterResBV('df_parse_colon'); /** @uses df_parse_colon() */
+	}
+
+	/**
+	 * 2019-01-14
+	 * @override
+	 * @see \Df\API\Client::proxy()
+	 * @used-by \Df\API\Client::setup()
+	 * @return Proxy
+	 */
+	protected function proxy() {
+		$s = dfps($this); /** @var S $s */
+		$r = $s->proxy(); /** @var Proxy $r */
+		return !$r->enable() ? null : $r;
 	}
 
 	/**
@@ -43,7 +57,7 @@ final class Client extends \Df\API\Client {
 	 * 2018-11-11
 	 * @override
 	 * @see \Df\API\Client::verifyCertificate()
-	 * @used-by \Df\API\Client::__construct()
+	 * @used-by \Df\API\Client::setup()
 	 */
 	protected function verifyCertificate() {return false;}
 

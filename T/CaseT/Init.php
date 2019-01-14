@@ -4,7 +4,7 @@ use Dfe\TBCBank\API\Facade as F;
 use Zend_Http_Client as Z;
 // 2018-09-26
 final class Init extends \Dfe\TBCBank\T\CaseT {
-	/** @test 2018-09-26 */
+	/** 2018-09-26 */
 	function t00() {}
 
 	/** 2018-09-26 */
@@ -29,7 +29,7 @@ final class Init extends \Dfe\TBCBank\T\CaseT {
 	/** 2018-09-26 */
 	function t03() {echo df_currency_num('GEL') . ' ' . gettype(df_currency_num('GEL'));}
 	
-	/** 2018-11-11 */
+	/** @test 2018-11-11 */
 	function t04() {echo F::s()->init([
 		// 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		'amount' => 100
