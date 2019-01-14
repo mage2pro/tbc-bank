@@ -35,7 +35,7 @@ final class Init extends \Dfe\TBCBank\T\CaseT {
 		'amount' => 100
 		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
 		,'client_ip_addr' => df_visitor_ip()
-		,'command1' => 'v'
+		,'command' => 'v'
 		,'currency' => 981 // 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
 		,'description' => 'UFCTEST' // 2018-09-26 «transaction details, optional (up to 125 characters)»
 		,'msg_type' => 'SMS'
