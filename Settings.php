@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\TBCBank;
+use Df\Payment\Settings\Proxy;
 // 2018-09-26
 /** @method static Settings s() */
 final class Settings extends \Df\Payment\Settings\BankCard {
@@ -30,6 +31,12 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	 * @return string
 	 */
 	function password() {return $this->p();}
+
+	/**
+	 * 2019-01-14
+	 * @return Proxy
+	 */
+	function proxy() {return dfc($this, function() {return new Proxy($this->m());});}
 
 	/**
 	 * 2018-09-29
