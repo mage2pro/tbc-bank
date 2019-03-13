@@ -42,7 +42,7 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	/**
 	 * 2018-09-29
 	 * @override
-	 * @see \Df\Payment\Settings::publicKey()
+	 * @see \Df\API\Settings::publicKey()
 	 * @used-by \Df\StripeClone\ConfigProvider::config()
 	 * @return string
 	 */
