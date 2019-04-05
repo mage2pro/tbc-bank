@@ -22,7 +22,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * 2018-11-11
 	 * @override
 	 * @see \Df\API\Response\Validator::valid()
-	 * @used-by \Df\API\Response\Validator::validate()
+	 * @used-by \Df\API\Client::_p()
 	 * @return bool
 	 */
 	function valid() {return !$this->long();}
