@@ -34,7 +34,7 @@
 	],
 	"repositories": [
 		{
-			"type": "vcs",
+			"type": "composer",
 			"url": "https://github.com/maqandarashvili/core"
 		}
 	]
