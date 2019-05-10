@@ -17,7 +17,7 @@ final class Charge extends \Df\Payment\Charge {
 	 * @param string $s
 	 * @return string
 	 */
-	protected function textFilter($s) {return df_translit($s);}
+	protected function textFilter($s) {return preg_replace('/[^A-Za-z0-9\s\/\.]/', '', df_translit($s));}
 
 	/**
 	 * 2018-11-14
