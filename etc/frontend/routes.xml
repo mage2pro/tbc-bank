@@ -4,7 +4,7 @@
 	xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd"
 >
 	<router id='standard'>
-		<route id='Dfe_TBCBank' frontName='dfe-tbc-bank'>
+		<route frontName='dfe-tbc-bank' id='Dfe_TBCBank'>
 			<module name='Dfe_TBCBank'/>
 		</route>
 	</router>
