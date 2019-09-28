@@ -119,7 +119,7 @@ So the `sortOrder` value is 1920. -->
 					type='textarea'
 				>
 					<label>Description</label>
-					<comment><![CDATA[It will be displayed to you in the TBC Bank merchant interface alongside the payment.
+					<comment><![CDATA[It is shown to you in the TBC Bank merchant interface alongside the payment.
 <br/>Up to 100 characters.
 <br/>You can use <a href='https://mage2.pro/t/1834' target='_blank'>variables</a> in the description.]]></comment>
 <!-- 2016-07-01
