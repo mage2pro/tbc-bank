@@ -1,8 +1,8 @@
 <?php
-namespace Dfe\TBCBank\T\CaseT;
+namespace Dfe\TBCBank\Test\CaseT;
 use Dfe\TBCBank\API\Facade as F;
 // 2018-11-09
-final class Regular extends \Dfe\TBCBank\T\CaseT {
+final class Regular extends \Dfe\TBCBank\Test\CaseT {
 	/** @test 2018-11-09 */
 	function t00() {}
 

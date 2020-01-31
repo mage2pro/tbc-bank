@@ -1,7 +1,7 @@
 <?php
-namespace Dfe\TBCBank\T\CaseT;
+namespace Dfe\TBCBank\Test\CaseT;
 // 2018-11-11
-final class Validator extends \Dfe\TBCBank\T\CaseT {
+final class Validator extends \Dfe\TBCBank\Test\CaseT {
 	/** @test 2018-11-11 */
 	function t00() {}
 

@@ -28,7 +28,7 @@ final class Facade extends \Df\API\Facade {
 	/**
 	 * 2018-11-11 It returns a string like «rm2opABtitnKMNPjcybjvAQ5H9g=»
 	 * @used-by \Dfe\TBCBank\Init::p()
-	 * @used-by \Dfe\TBCBank\T\CaseT\Init::transId()
+	 * @used-by \Dfe\TBCBank\Test\CaseT\Init::transId()
 	 * @param array $p
 	 * @return string
 	 * @throws DFE
@@ -37,7 +37,7 @@ final class Facade extends \Df\API\Facade {
 
 	/**
 	 * 2018-11-11 It returns a string like «rm2opABtitnKMNPjcybjvAQ5H9g=»
-	 * @used-by \Dfe\TBCBank\T\CaseT\Regular::transId()
+	 * @used-by \Dfe\TBCBank\Test\CaseT\Regular::transId()
 	 * @param array $p
 	 * @return string
 	 * @throws DFE

@@ -1,9 +1,9 @@
 <?php
-namespace Dfe\TBCBank\T\CaseT;
+namespace Dfe\TBCBank\Test\CaseT;
 use Dfe\TBCBank\API\Facade as F;
 use Zend_Http_Client as Z;
 // 2018-09-26
-final class Init extends \Dfe\TBCBank\T\CaseT {
+final class Init extends \Dfe\TBCBank\Test\CaseT {
 	/** 2018-09-26 */
 	function t00() {}
 
