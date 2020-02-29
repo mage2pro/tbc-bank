@@ -38,7 +38,7 @@ final class Client extends \Df\API\Client {
 	 * 2018-11-11
 	 * @override
 	 * @see \Df\API\Client::responseValidatorC()
-	 * @used-by \Df\API\Client::p()
+	 * @used-by \Df\API\Client::_p()
 	 * @return string
 	 */
 	protected function responseValidatorC() {return \Dfe\TBCBank\API\Validator::class;}
