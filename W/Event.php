@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\TBCBank\W;
 use Df\Payment\Init\Action as A;
-// 2018-09-27
+# 2018-09-27
 final class Event extends \Df\StripeClone\W\Event {
 	/**
 	 * 2018-11-12

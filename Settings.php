@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\TBCBank;
 use Df\Payment\Settings\Proxy;
-// 2018-09-26
+# 2018-09-26
 /** @method static Settings s() */
 final class Settings extends \Df\Payment\Settings\BankCard {
 	/**

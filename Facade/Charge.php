@@ -3,7 +3,7 @@ namespace Dfe\TBCBank\Facade;
 use Df\API\Operation;
 use Dfe\TBCBank\API\Facade as F;
 use Dfe\TBCBank\W\Event as Ev;
-// 2018-11-09
+# 2018-11-09
 /** @method \Dfe\TBCBank\Method m() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
 	/**

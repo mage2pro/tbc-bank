@@ -26,17 +26,17 @@ final class Charge extends \Df\Payment\Charge {
 	 * @return array(string => mixed)
 	 */
 	private function common() {return [
-		// 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
+		# 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		'amount' => $this->amountF()
-		// 2018-11-22
-		// https://mail.google.com/mail/u/0/#inbox/KtbxLrjVmhsgbmXmbPwfTZjlgrJSSKJsVB
-		// https://www.upwork.com/messages/rooms/room_dedb1119e1f5f4d8e506b963f506d8e4/story_61f60dab05ae5325df50dbaaf6d28d03
+		# 2018-11-22
+		# https://mail.google.com/mail/u/0/#inbox/KtbxLrjVmhsgbmXmbPwfTZjlgrJSSKJsVB
+		# https://www.upwork.com/messages/rooms/room_dedb1119e1f5f4d8e506b963f506d8e4/story_61f60dab05ae5325df50dbaaf6d28d03
 		,'biller' => $this->description()
-		// 2018-09-26 «client’s IP address, mandatory (15 characters)»
+		# 2018-09-26 «client’s IP address, mandatory (15 characters)»
 		,'client_ip_addr' => df_visitor_ip()
-		// 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
+		# 2018-09-26 «transaction currency code (ISO 4217), mandatory, (3 digits)»
 		,'currency' => df_currency_num($this->currencyC())
-		// 2018-09-26 «transaction details, optional (up to 125 characters)»
+		# 2018-09-26 «transaction details, optional (up to 125 characters)»
 		,'description' => $this->description()
 	];}
 
@@ -49,7 +49,7 @@ final class Charge extends \Df\Payment\Charge {
 		$c = Action::sg($this->m())->preconfiguredToCapture();
 		$t = $this->s()->tokenization(); /** @var bool $t */
 		return $this->common() + [
-			 // 2018-09-26 «identifies a request for transaction registration»
+			 # 2018-09-26 «identifies a request for transaction registration»
 			'command' => !$c ? 'a' : ($t ? 'z' : 'v')
 			/**
 			 * 2018-10-06
@@ -72,22 +72,22 @@ final class Charge extends \Df\Payment\Charge {
 			 */
 			,'msg_type' => $c ? 'SMS' : 'DMS'
 		] + (!$t ? [] : [
-			// 2018-11-13
-			// «Выбранный ТСП идентификатор регулярного платежа.
-			// Окончательное значение идентификатора регулярных платежей
-			// формируется с помощью Merchant ID ТСП и значения указанного biller_client_id идентификатора.»
-			// Mandatory.
-			// https://mage2.pro/t/5740
+			# 2018-11-13
+			# «Выбранный ТСП идентификатор регулярного платежа.
+			# Окончательное значение идентификатора регулярных платежей
+			# формируется с помощью Merchant ID ТСП и значения указанного biller_client_id идентификатора.»
+			# Mandatory.
+			# https://mage2.pro/t/5740
 			'biller_client_id' => df_uid(10)
-			// 2018-11-13
-			// «Предельный срок действия регулярного платежа в формате ММГГ»
-			// Mandatory.
-			// https://mage2.pro/t/5740
+			# 2018-11-13
+			# «Предельный срок действия регулярного платежа в формате ММГГ»
+			# Mandatory.
+			# https://mage2.pro/t/5740
 			,'perspayee_expiry' => '1299'
-			// 2018-11-13
-			// «Используется для генерации нового шаблона регулярного (рекуррентного) платежа»
-			// Mandatory.
-			// https://mage2.pro/t/5740
+			# 2018-11-13
+			# «Используется для генерации нового шаблона регулярного (рекуррентного) платежа»
+			# Mandatory.
+			# https://mage2.pro/t/5740
 			,'perspayee_gen' => 1
 		]);
 	}
@@ -107,13 +107,13 @@ final class Charge extends \Df\Payment\Charge {
 	 * @return array(string => mixed)
 	 */
 	static function pNew(Method $m) {$i = new self($m); /** @var self $i */ return $i->common() + [
-		// 2018-11-13
-		// «Выбранный ТСП идентификатор регулярного платежа.
-		// Окончательное значение идентификатора регулярных платежей
-		// формируется с помощью Merchant ID ТСП и значения указанного biller_client_id идентификатора.»
-		// Mandatory.
-		// https://mage2.pro/t/5740
+		# 2018-11-13
+		# «Выбранный ТСП идентификатор регулярного платежа.
+		# Окончательное значение идентификатора регулярных платежей
+		# формируется с помощью Merchant ID ТСП и значения указанного biller_client_id идентификатора.»
+		# Mandatory.
+		# https://mage2.pro/t/5740
 		'biller_client_id' => $i->token()
-		,'command' => 'e' // 2018-11-14 «Повторное списание регулярного платежа»
+		,'command' => 'e' # 2018-11-14 «Повторное списание регулярного платежа»
 	];}
 }

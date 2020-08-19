@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\TBCBank\Facade;
 use Dfe\TBCBank\W\Event as E;
-// 2018-11-12
+# 2018-11-12
 final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2018-11-12

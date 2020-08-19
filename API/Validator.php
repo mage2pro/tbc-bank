@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\TBCBank\API;
-// 2018-11-09
+# 2018-11-09
 /** @used-by \Dfe\TBCBank\API\Client::responseValidatorC() */
 final class Validator extends \Df\API\Response\Validator {
 	/**

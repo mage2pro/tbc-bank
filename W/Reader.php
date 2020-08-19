@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\TBCBank\W;
 use Dfe\TBCBank\API\Facade as F;
-// 2018-09-27
+# 2018-09-27
 final class Reader extends \Df\Payment\W\Reader {
 	/**
 	 * 2018-09-27

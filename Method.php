@@ -2,7 +2,7 @@
 namespace Dfe\TBCBank;
 use Df\Payment\Token;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
-// 2018-09-26
+# 2018-09-26
 /** @method Settings s() */
 final class Method extends \Df\StripeClone\Method {
 	/**

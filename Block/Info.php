@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\TBCBank\Block;
 use Dfe\TBCBank\W\Event as E;
-// 2018-11-12
+# 2018-11-12
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class Info extends \Df\StripeClone\Block\Info {
 	/**

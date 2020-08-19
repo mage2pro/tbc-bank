@@ -2,7 +2,7 @@
 namespace Dfe\TBCBank\API;
 use Df\Payment\Settings\Proxy;
 use Dfe\TBCBank\Settings as S;
-// 2018-11-09
+# 2018-11-09
 final class Client extends \Df\API\Client {
 	/**
 	 * 2018-11-11
@@ -12,12 +12,12 @@ final class Client extends \Df\API\Client {
 	 */
 	protected function _construct() {
 		parent::_construct();
-		// 2018-11-14
-		// A response looks like:
-		// «TRANSACTION_ID: jiqiowN8jjPx5+8+BLfZwv3PAhs=
-		// RESULT: FAILED
-		// RESULT_CODE: 102»
-		// It contains newlines.
+		# 2018-11-14
+		# A response looks like:
+		# «TRANSACTION_ID: jiqiowN8jjPx5+8+BLfZwv3PAhs=
+		# RESULT: FAILED
+		# RESULT_CODE: 102»
+		# It contains newlines.
 		$this->addFilterResBV('df_parse_colon'); /** @uses df_parse_colon() */
 	}
 
@@ -70,9 +70,9 @@ final class Client extends \Df\API\Client {
 	 * @return array(string => mixed)
 	 */
 	protected function zfConfig() {$s = dfps($this); /** @var S $s */ return [
-		// 2018-11-11 «Path to a PEM encoded SSL certificate»
+		# 2018-11-11 «Path to a PEM encoded SSL certificate»
 		'sslcert' => $s->certificate()
-		// 2018-11-11 «Path to a PEM encoded SSL certificate»
+		# 2018-11-11 «Path to a PEM encoded SSL certificate»
 		,'sslpassphrase' => $s->password()
 		/**
 		 * 2018-11-11 «SSL transport layer (eg. 'sslv2', 'tls')».

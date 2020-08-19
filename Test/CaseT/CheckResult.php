@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\TBCBank\Test\CaseT;
 use Dfe\TBCBank\API\Facade as F;
-// 2018-09-27
+# 2018-09-27
 final class CheckResult extends \Dfe\TBCBank\Test\CaseT {
 	/** @test 2018-09-27 */
 	function t00() {}

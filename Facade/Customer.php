@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\TBCBank\Facade;
-// 2018-11-09
+# 2018-11-09
 /** @method \Dfe\TBCBank\Settings ss() */
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
