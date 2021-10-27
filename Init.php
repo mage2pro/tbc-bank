@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\TBCBank;
 use Dfe\TBCBank\API\Facade as F;
+use Dfe\TBCBank\Session as Sess;
 use Magento\Quote\Api\Data\AddressInterface as IQA;
 use Magento\Quote\Api\Data\PaymentInterface as IQP;
 use Magento\Quote\Model\Quote\Address as QA;
@@ -42,7 +43,7 @@ final class Init {
 	 * @return string
 	 */
 	private function p() {
-		df_customer_session()->setDfeTBCParams($p = Charge::p()); /** @var array(string => mixed) $p */
+		Sess::s()->data($p = Charge::p()); /** @var array(string => mixed) $p */
 		return dfw_encode(['id' => F::s()->init($p)]);
 	}
 }

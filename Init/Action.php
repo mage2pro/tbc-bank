@@ -3,6 +3,7 @@ namespace Dfe\TBCBank\Init;
 use Df\Payment\Source\AC;
 use Df\Payment\W\Event as Ev;
 use Df\StripeClone\Facade\Charge as FCharge;
+use Dfe\TBCBank\Session as Sess;
 /**
  * 2018-09-26
  * @method \Dfe\TBCBank\Method m()
@@ -28,7 +29,7 @@ final class Action extends \Df\Payment\Init\Action {
 	 * @used-by \Df\Payment\Init\Action::action()
 	 * @return array(string => mixed)
 	 */
-	protected function redirectParams() {return df_customer_session()->getDfeTBCParams();}
+	protected function redirectParams() {return Sess::s()->data();}
 
 	/**
 	 * 2018-09-26
