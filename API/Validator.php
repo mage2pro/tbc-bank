@@ -12,18 +12,16 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @see \Df\API\Exception::long()
 	 * @used-by valid()
 	 * @used-by \Df\API\Client::_p()
-	 * @return string|null
 	 */
-	function long() {return $this->r('error') ?: ('FAILED' !== $this->r('RESULT') ? null : (
+	function long():string {return df_nts($this->r('error') ?: ('FAILED' !== $this->r('RESULT') ? null : (
 		(string)__(($c = $this->r('RESULT_CODE')) ? "Dfe_TBCBank_R_$c" : 'An unknown error occured')
-	));}
+	)));}
 
 	/**
 	 * 2018-11-11
 	 * @override
 	 * @see \Df\API\Response\Validator::valid()
 	 * @used-by \Df\API\Client::_p()
-	 * @return bool
 	 */
-	function valid() {return !$this->long();}
+	function valid():bool {return !$this->long();}
 }

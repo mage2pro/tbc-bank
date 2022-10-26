@@ -7,7 +7,7 @@ final class Session extends \Df\Customer\SessionBase {
 	 * @used-by \Dfe\TBCBank\Init::p()
 	 * @used-by \Dfe\TBCBank\Init\Action::redirectParams()
 	 * @param array(string => mixed)|string $v [optional]
-	 * @return $this|array(string => mixed)
+	 * @return self|array(string => mixed)
 	 */
 	function data($v = DF_N) {return df_prop($this, $v, []);}
 }

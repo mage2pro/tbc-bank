@@ -39,9 +39,8 @@ final class Client extends \Df\API\Client {
 	 * @override
 	 * @see \Df\API\Client::responseValidatorC()
 	 * @used-by \Df\API\Client::_p()
-	 * @return string
 	 */
-	protected function responseValidatorC() {return \Dfe\TBCBank\API\Validator::class;}
+	protected function responseValidatorC():string {return \Dfe\TBCBank\API\Validator::class;}
 
 	/**
 	 * 2018-11-09
@@ -49,9 +48,8 @@ final class Client extends \Df\API\Client {
 	 * @see \Df\API\Client::urlBase()
 	 * @used-by \Df\API\Client::__construct()
 	 * @used-by \Df\API\Client::url()
-	 * @return string
 	 */
-	protected function urlBase() {return 'https://ecommerce.ufc.ge:18443/ecomm2/MerchantHandler';}
+	protected function urlBase():string {return 'https://ecommerce.ufc.ge:18443/ecomm2/MerchantHandler';}
 
 	/**
 	 * 2018-11-11
@@ -59,7 +57,7 @@ final class Client extends \Df\API\Client {
 	 * @see \Df\API\Client::verifyCertificate()
 	 * @used-by \Df\API\Client::setup()
 	 */
-	protected function verifyCertificate() {return false;}
+	protected function verifyCertificate():bool {return false;}
 
 	/**
 	 * 2018-11-11
@@ -69,7 +67,7 @@ final class Client extends \Df\API\Client {
 	 * @used-by \Df\API\Client::__construct()
 	 * @return array(string => mixed)
 	 */
-	protected function zfConfig() {$s = dfps($this); /** @var S $s */ return [
+	protected function zfConfig():array {$s = dfps($this); /** @var S $s */ return [
 		# 2018-11-11 «Path to a PEM encoded SSL certificate»
 		'sslcert' => $s->certificate()
 		# 2018-11-11 «Path to a PEM encoded SSL certificate»

@@ -51,9 +51,8 @@ final class Facade extends \Df\API\Facade {
 	 * @used-by \Df\API\Facade::p()
 	 * @param int|string|null $id
 	 * @param string|null $suffix
-	 * @return string
 	 */
-	protected function path($id, $suffix) {return '';}
+	protected function path($id, $suffix):string {return '';}
 
 	/**
 	 * 2018-11-11 It returns a string like «rm2opABtitnKMNPjcybjvAQ5H9g=»

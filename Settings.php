@@ -44,9 +44,8 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	 * @override
 	 * @see \Df\API\Settings::publicKey()
 	 * @used-by \Df\StripeClone\ConfigProvider::config()
-	 * @return string
 	 */
-	function publicKey() {return null;}
+	function publicKey():string {return '';}
 
 	/**
 	 * 2018-11-13 «Enable Tokenization?»
@@ -62,9 +61,8 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	 * @override
 	 * @see \Df\Config\Settings::prefix()
 	 * @used-by \Df\Config\Settings::v()
-	 * @return string
 	 */
-	protected function prefix() {return 'df_payment/tbc_bank';}
+	protected function prefix():string {return 'df_payment/tbc_bank';}
 
 	/**
 	 * 2018-09-26
