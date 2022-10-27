@@ -81,18 +81,18 @@ final class Card extends \Df\StripeClone\Facade\Card {
 
 	/**
 	 * 2018-11-13 The `RECC_PMNT_EXPIRY` value is present only if tokenization is enabled.
-	 * @used-by expMonth()
-	 * @used-by expYear()
+	 * @used-by self::expMonth()
+	 * @used-by self::expYear()
 	 * @return string
 	 */
 	private function exp() {return strval(dfa($this->_p, E::CARD_EXP));}
 
 	/**
 	 * 2018-11-12
-	 * @used-by __construct()
-	 * @used-by exp()
-	 * @used-by id()
-	 * @used-by numberMasked()
+	 * @used-by self::__construct()
+	 * @used-by self::exp()
+	 * @used-by self::id()
+	 * @used-by self::numberMasked()
 	 * @var array(string => string)
 	 */
 	private $_p;

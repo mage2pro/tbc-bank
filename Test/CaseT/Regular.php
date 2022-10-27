@@ -26,7 +26,7 @@ final class Regular extends \Dfe\TBCBank\Test\CaseT {
 
 	/**
 	 * 2018-11-09
-	 * @used-by t01()
+	 * @used-by self::t01()
 	 * @return string
 	 */
 	private function transId() {return F::s()->initRegular([

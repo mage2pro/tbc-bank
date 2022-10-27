@@ -66,8 +66,8 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 
 	/**
 	 * 2018-09-26
-	 * @used-by __destruct()
-	 * @used-by certificate()
+	 * @used-by self::__destruct()
+	 * @used-by self::certificate()
 	 * @var resource|null
 	 */
 	private $_file;

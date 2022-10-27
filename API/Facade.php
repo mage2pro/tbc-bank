@@ -56,8 +56,8 @@ final class Facade extends \Df\API\Facade {
 
 	/**
 	 * 2018-11-11 It returns a string like «rm2opABtitnKMNPjcybjvAQ5H9g=»
-	 * @used-by init()
-	 * @used-by initRegular()
+	 * @used-by self::init()
+	 * @used-by self::initRegular()
 	 * @param array $p
 	 * @return string
 	 * @throws DFE

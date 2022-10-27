@@ -21,8 +21,8 @@ final class Charge extends \Df\Payment\Charge {
 
 	/**
 	 * 2018-11-14
-	 * @used-by pCharge()
-	 * @used-by pNew()
+	 * @used-by self::pCharge()
+	 * @used-by self::pNew()
 	 * @return array(string => mixed)
 	 */
 	private function common() {return [
@@ -42,7 +42,7 @@ final class Charge extends \Df\Payment\Charge {
 
 	/**
 	 * 2018-09-27
-	 * @used-by p()
+	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
 	private function pCharge() {

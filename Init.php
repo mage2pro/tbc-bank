@@ -38,8 +38,8 @@ final class Init {
 
 	/**
 	 * 2018-09-29
-	 * @used-by guest()
-	 * @used-by registered()
+	 * @used-by self::guest()
+	 * @used-by self::registered()
 	 * @return string
 	 */
 	private function p() {

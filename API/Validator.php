@@ -10,7 +10,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * 3) An error response always ends with a new line for an unknown reason.
 	 * @override
 	 * @see \Df\API\Exception::long()
-	 * @used-by valid()
+	 * @used-by self::valid()
 	 * @used-by \Df\API\Client::_p()
 	 */
 	function long():string {return df_nts($this->r('error') ?: ('FAILED' !== $this->r('RESULT') ? null : (

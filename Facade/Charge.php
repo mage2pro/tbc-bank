@@ -58,12 +58,10 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * 2018-11-09
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::refund()
-	 * @used-by void()
+	 * @used-by self::void()
 	 * @used-by \Df\StripeClone\Method::_refund()
 	 * @param string $id
-	 * @param float $a
-	 * В формате и валюте платёжной системы.
-	 * Значение готово для применения в запросе API.
+	 * @param float $a В формате и валюте платёжной системы. Значение готово для применения в запросе API.
 	 * @return null
 	 */
 	function refund($id, $a) {return null;}

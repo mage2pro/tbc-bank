@@ -28,7 +28,7 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * 2018-11-16
 	 * @override
 	 * @see \Df\Payment\Block\Info::ciId()
-	 * @used-by prepare()
+	 * @used-by self::prepare()
 	 * @used-by \Df\Payment\Block\Info::ci();
 	 * @return string
 	 */

@@ -54,8 +54,8 @@ final class Action extends \Df\Payment\Init\Action {
 
 	/**
 	 * 2018-11-14
-	 * @used-by redirectUrl()
-	 * @used-by transId()
+	 * @used-by self::redirectUrl()
+	 * @used-by self::transId()
 	 * @return bool
 	 */
 	private function isRecurring() {return dfc($this, function() {return

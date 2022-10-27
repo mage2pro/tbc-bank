@@ -30,7 +30,7 @@ final class Event extends \Df\StripeClone\W\Event {
 	/**
 	 * 2018-11-12
 	 * @override
-	 * @used-by isSuccessful()
+	 * @used-by self::isSuccessful()
 	 * @used-by \Dfe\TBCBank\Block\Info::prepare()
 	 * @return string
 	 */
@@ -86,7 +86,7 @@ final class Event extends \Df\StripeClone\W\Event {
 	function ttParent() {return self::T_INIT;}
 	/**
 	 * 2018-11-13
-	 * @used-by cardId()
+	 * @used-by self::cardId()
 	 * @used-by \Dfe\TBCBank\Facade\Card::id()
 	 * @used-by \Dfe\TBCBank\W\Strategy\ConfirmPending::onSuccess()
 	 */
@@ -114,7 +114,7 @@ final class Event extends \Df\StripeClone\W\Event {
 
 	/**
 	 * 2018-11-16
-	 * @used-by k_pidSuffix()
+	 * @used-by self::k_pidSuffix()
 	 * @used-by \Dfe\TBCBank\W\Reader::reqFilter()
 	 */
 	const TID_SHORT = 'trans_id';
