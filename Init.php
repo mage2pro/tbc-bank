@@ -17,7 +17,7 @@ final class Init {
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 * @return string
 	 */
-	function guest(string $cartId, string $email, IQP $qp, IQA $ba = null) {return $this->p();}
+	function guest(string $cartId, string $email, IQP $qp, IQA $ba = null):string {return $this->p();}
 
 	/**
 	 * 2018-09-28
