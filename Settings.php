@@ -33,9 +33,8 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	/**
 	 * 2019-01-14
 	 * @used-by \Dfe\TBCBank\API\Client::proxy()
-	 * @return Proxy
 	 */
-	function proxy() {return dfc($this, function() {return new Proxy($this->m());});}
+	function proxy():Proxy {return dfc($this, function() {return new Proxy($this->m());});}
 
 	/**
 	 * 2018-09-29
