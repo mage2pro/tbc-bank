@@ -27,9 +27,8 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	/**
 	 * 2018-09-26
 	 * @used-by \Dfe\TBCBank\API\Client::zfConfig()
-	 * @return string
 	 */
-	function password() {return $this->p();}
+	function password():string {return $this->p();}
 
 	/**
 	 * 2019-01-14
