@@ -28,9 +28,8 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
-	 * @return Operation
 	 */
-	function create(array $p) {return F::s()->post($p);}
+	function create(array $p):Operation {return F::s()->post($p);}
 
 	/**
 	 * 2018-11-16
