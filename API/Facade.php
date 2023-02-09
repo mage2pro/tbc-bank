@@ -20,7 +20,7 @@ final class Facade extends \Df\API\Facade {
 	 * @return array(string => string)
 	 * @throws DFE
 	 */
-	function check(string $id) {return $this->post([
+	function check(string $id):array {return $this->post([
 		'client_ip_addr' => df_visitor_ip(), 'command' => 'c', 'trans_id' => $id
 	])->a();}
 
