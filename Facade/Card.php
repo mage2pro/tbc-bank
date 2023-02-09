@@ -71,9 +71,8 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2018-11-12 A string like «5***********1223».
 	 * @used-by \Dfe\TBCBank\CardFormatter::label()
-	 * @return string
 	 */
-	function numberMasked() {return dfa($this->_p, E::CARD_NUMBER);}
+	function numberMasked():string {return dfa($this->_p, E::CARD_NUMBER);}
 
 	/**
 	 * 2018-11-12
