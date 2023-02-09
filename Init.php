@@ -26,7 +26,6 @@ final class Init {
 	 * $qp в поле @see \Magento\Framework\DataObject::_data содержит код способа оплаты,
 	 * а также ту дополнительную информацию, которую передала клиентская часть модуля оплаты.
 	 * Например: [additional_data => [], method => "dfe_klarna"].
-	 * @param int $cartId
 	 * @param IQP|QP $qp
 	 * @param IQA|QA|null $ba
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
@@ -34,7 +33,7 @@ final class Init {
 	 * «Method's return type must be specified using @return annotation»: https://github.com/mage2pro/core/issues/179
 	 * @return string
 	 */
-	function registered($cartId, IQP $qp, IQA $ba = null) {return $this->p();}
+	function registered(int $cartId, IQP $qp, IQA $ba = null) {return $this->p();}
 
 	/**
 	 * 2018-09-29
