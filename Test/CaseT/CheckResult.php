@@ -16,8 +16,8 @@ final class CheckResult extends \Dfe\TBCBank\Test\CaseT {
 	 * APPROVAL_CODE: 228017
 	 * CARD_NUMBER: 5***********1988»
 	 */
-	function t01() {echo df_json_encode(F::s()->check('DK4K/mkyiJZ2PSJc9NMdjfS3nds='));}
+	function t01():void {echo df_json_encode(F::s()->check('DK4K/mkyiJZ2PSJc9NMdjfS3nds='));}
 
 	/** 2018-11-11 */
-	function t02() {echo df_json_encode(F::s()->check('11DK4K/mkyiJZ2PSJc9NMdjfS3nds='));}
+	function t02():void {echo df_json_encode(F::s()->check('11DK4K/mkyiJZ2PSJc9NMdjfS3nds='));}
 }
