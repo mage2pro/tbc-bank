@@ -37,9 +37,8 @@ final class Init {
 	 * 2018-09-29
 	 * @used-by self::guest()
 	 * @used-by self::registered()
-	 * @return string
 	 */
-	private function p() {
+	private function p():string {
 		Sess::s()->data($p = Charge::p()); /** @var array(string => mixed) $p */
 		return dfw_encode(['id' => F::s()->init($p)]);
 	}
