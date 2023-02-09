@@ -17,11 +17,10 @@ final class Facade extends \Df\API\Facade {
 	 *		"CARD_NUMBER: 5***********1988"
 	 *	]
 	 * @used-by \Dfe\TBCBank\W\Reader::reqFilter()
-	 * @param string $id
 	 * @return array(string => string)
 	 * @throws DFE
 	 */
-	function check($id) {return $this->post([
+	function check(string $id) {return $this->post([
 		'client_ip_addr' => df_visitor_ip(), 'command' => 'c', 'trans_id' => $id
 	])->a();}
 
