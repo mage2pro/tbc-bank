@@ -64,7 +64,6 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @override
 	 * @see \Df\Payment\Block\Info::transIDLabel()
 	 * @used-by \Df\Payment\Block\Info::siID()
-	 * @return string
 	 */
 	final protected function transIDLabel():string {return 'Tansaction ID';}
 }
