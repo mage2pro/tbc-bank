@@ -45,9 +45,8 @@ final class Init extends \Dfe\TBCBank\Test\CaseT {
 	 * 2018-09-26
 	 * @used-by self::t01()
 	 * @used-by self::t02()
-	 * @return string
 	 */
-	private function transId() {return F::s()->init([
+	private function transId():string {return F::s()->init([
 		'amount' => 100 # 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		,'client_ip_addr' => df_visitor_ip() # 2018-09-26 «client’s IP address, mandatory (15 characters)»
 		,'command' => 'v'
