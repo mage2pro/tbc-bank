@@ -96,7 +96,7 @@ final class Charge extends \Df\Payment\Charge {
 	 * @param Method|null $m [optional]
 	 * @return array(string => mixed)
 	 */
-	static function p(Method $m = null) {return (new self($m ?: dfpm(__CLASS__)))->pCharge();}
+	static function p(Method $m = null):array {return (new self($m ?: dfpm(__CLASS__)))->pCharge();}
 
 	/**
 	 * 2018-11-14 It is used only for repetitive payments via previously saved bank cards.
