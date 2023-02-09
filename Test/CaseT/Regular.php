@@ -4,13 +4,13 @@ use Dfe\TBCBank\API\Facade as F;
 # 2018-11-09
 final class Regular extends \Dfe\TBCBank\Test\CaseT {
 	/** 2018-11-09 @test */
-	function t00() {}
+	function t00():void {}
 
 	/** 2018-11-09 */
-	function t01() {echo __METHOD__ . ': ' . $this->transId();}
+	function t01():void {echo __METHOD__ . ': ' . $this->transId();}
 
 	/** 2018-11-13 */
-	function t02() {echo df_json_encode(df_extend(
+	function t02():void {echo df_json_encode(df_extend(
 		['TBCBank' => ['1111' => ['a' => 'b']]]
 		,['TBCBank' => ['2222' => ['c' => 'd']]]
 	));}
@@ -19,10 +19,10 @@ final class Regular extends \Dfe\TBCBank\Test\CaseT {
 	 * 2018-11-13
 	 * intval('02') => 2
 	 */
-	function t03() {echo intval('02');}
+	function t03():void {echo intval('02');}
 
 	/** 2018-11-13 */
-	function t04() {echo df_json_encode([df_year(), df_month()]);}
+	function t04():void {echo df_json_encode([df_year(), df_month()]);}
 
 	/**
 	 * 2018-11-09
