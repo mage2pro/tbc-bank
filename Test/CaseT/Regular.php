@@ -27,9 +27,8 @@ final class Regular extends \Dfe\TBCBank\Test\CaseT {
 	/**
 	 * 2018-11-09
 	 * @used-by self::t01()
-	 * @return string
 	 */
-	private function transId() {return F::s()->initRegular([
+	private function transId():string {return F::s()->initRegular([
 		'amount' => 100 # 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		,'biller_client_id' => df_uid() # 2018-11-09 «merchant-selected regular payment identifier»
 		# 2018-09-26 «client’s IP address, mandatory (15 characters)»
