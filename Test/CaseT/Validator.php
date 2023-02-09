@@ -3,7 +3,7 @@ namespace Dfe\TBCBank\Test\CaseT;
 # 2018-11-11
 final class Validator extends \Dfe\TBCBank\Test\CaseT {
 	/** 2018-11-11 @test */
-	function t00() {}
+	function t00():void {}
 
 	/** 2018-11-11 */
 	function t01() {echo df_json_encode([
