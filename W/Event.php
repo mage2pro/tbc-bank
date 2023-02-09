@@ -30,9 +30,8 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @override
 	 * @used-by self::isSuccessful()
 	 * @used-by \Dfe\TBCBank\Block\Info::prepare()
-	 * @return string
 	 */
-	function paymentStatus() {return $this->r('RESULT');}
+	function paymentStatus():string {return $this->r('RESULT');}
 
 	/**
 	 * 2018-11-12
