@@ -102,7 +102,7 @@ final class Charge extends \Df\Payment\Charge {
 	 * @used-by \Dfe\TBCBank\Method::chargeNewParams()
 	 * @return array(string => mixed)
 	 */
-	static function pNew(Method $m) {$i = new self($m); /** @var self $i */ return $i->common() + [
+	static function pNew(Method $m):array {$i = new self($m); /** @var self $i */ return $i->common() + [
 		# 2018-11-13
 		# «Выбранный ТСП идентификатор регулярного платежа.
 		# Окончательное значение идентификатора регулярных платежей
