@@ -61,7 +61,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param array(string => mixed) $id
 	 * @return array(string => mixed)
 	 */
-	protected function _get($id) {return $id;}
+	protected function _get($id):array {return $id;}
 
 	/**
 	 * 2018-11-14
