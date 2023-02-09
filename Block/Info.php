@@ -11,7 +11,7 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @used-by \Df\StripeClone\Block\Info::card()
 	 * @return array(string => mixed)
 	 */
-	final protected function cardData() {return dfc($this, function() {return
+	final protected function cardData():array {return dfc($this, function() {return
 		$this->ci() ?: (($ev = $this->tm()->responseF()) ? $ev->r() : [])
 	;});}
 	
