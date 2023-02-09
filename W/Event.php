@@ -7,9 +7,8 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * 2018-11-12
 	 * @override
 	 * @used-by \Dfe\TBCBank\Block\Info::prepare()
-	 * @return string
 	 */
-	function _3dsStatus() {return $this->r('3DSECURE');}
+	function _3dsStatus():string {return $this->r('3DSECURE');}
 
 	/**
 	 * 2018-11-13
