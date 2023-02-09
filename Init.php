@@ -30,6 +30,8 @@ final class Init {
 	 * @param IQP|QP $qp
 	 * @param IQA|QA|null $ba
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
+	 * 2023-01-28
+	 * «Method's return type must be specified using @return annotation»: https://github.com/mage2pro/core/issues/179
 	 * @return string
 	 */
 	function registered($cartId, IQP $qp, IQA $ba = null) {return $this->p();}
