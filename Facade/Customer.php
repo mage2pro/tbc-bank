@@ -72,5 +72,5 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @return \Dfe\TBCBank\Facade\Card[]
 	 * @see \Dfe\Stripe\Facade\Charge::cardData()
 	 */
-	protected function cardsData($c) {return !$this->ss()->tokenization() ? [] : $c;}
+	protected function cardsData($c):array {return !$this->ss()->tokenization() ? [] : $c;}
 }
