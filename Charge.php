@@ -23,7 +23,7 @@ final class Charge extends \Df\Payment\Charge {
 	 * @used-by self::pNew()
 	 * @return array(string => mixed)
 	 */
-	private function common() {return [
+	private function common():array {return [
 		# 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		'amount' => $this->amountF()
 		# 2018-11-22
