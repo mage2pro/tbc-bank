@@ -43,7 +43,7 @@ final class Charge extends \Df\Payment\Charge {
 	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
-	private function pCharge() {
+	private function pCharge():array {
 		$c = Action::sg($this->m())->preconfiguredToCapture();
 		$t = $this->s()->tokenization(); /** @var bool $t */
 		return $this->common() + [
