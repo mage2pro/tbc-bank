@@ -18,7 +18,7 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	 * 2018-09-26 https://stackoverflow.com/a/11038338
 	 * @used-by \Dfe\TBCBank\API\Client::zfConfig()
 	 */
-	function certificate():string {return dfc($this, function() {
+	function certificate():string {return dfc($this, function():string {
 		$this->_file = tmpfile();
 		fwrite($this->_file, $this->v('certificate'));
 		return stream_get_meta_data($this->_file)['uri'];
