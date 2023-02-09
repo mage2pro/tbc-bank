@@ -100,7 +100,6 @@ final class Charge extends \Df\Payment\Charge {
 	/**
 	 * 2018-11-14 It is used only for repetitive payments via previously saved bank cards.
 	 * @used-by \Dfe\TBCBank\Method::chargeNewParams()
-	 * @param Method $m
 	 * @return array(string => mixed)
 	 */
 	static function pNew(Method $m) {$i = new self($m); /** @var self $i */ return $i->common() + [
