@@ -49,9 +49,8 @@ final class Settings extends \Df\Payment\Settings\BankCard {
 	 * @used-by \Dfe\TBCBank\Charge::pCharge()
 	 * @used-by \Dfe\TBCBank\Facade\Customer::cardsData()
 	 * @used-by \Dfe\TBCBank\Init\Action::preconfigured()
-	 * @return string
 	 */
-	function tokenization() {return $this->b();}
+	function tokenization():string {return $this->b();}
 
 	/**
 	 * 2018-09-26
