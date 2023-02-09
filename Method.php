@@ -9,9 +9,8 @@ final class Method extends \Df\StripeClone\Method {
 	 * 2018-10-06
 	 * @override
 	 * @see \Df\Payment\Method::canCapturePartial()
-	 * @return bool
 	 */
-	function canCapturePartial() {return true;}
+	function canCapturePartial():bool {return true;}
 
 	/**
 	 * 2018-09-26
@@ -30,7 +29,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @param bool $capture
 	 * @return array(string => mixed)
 	 */
-	protected function chargeNewParams($capture) {return Charge::pNew($this);}
+	protected function chargeNewParams($capture):array {return Charge::pNew($this);}
 
 	/**
 	 * 2018-09-29
@@ -39,7 +38,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @used-by \Df\Payment\Method::assignData()
 	 * @return string[]
 	 */
-	protected function iiaKeys() {return [Token::KEY];}
+	protected function iiaKeys():array {return [Token::KEY];}
 
 	/**
 	 * 2018-11-09
@@ -47,9 +46,8 @@ final class Method extends \Df\StripeClone\Method {
 	 * @see \Df\StripeClone\Method::transUrlBase()
 	 * @used-by \Df\StripeClone\Method::transUrl()
 	 * @param T $t
-	 * @return string
 	 */
-	protected function transUrlBase(T $t) {return '';}
+	protected function transUrlBase(T $t):string {return '';}
 
 	/**
 	 * 2018-09-26

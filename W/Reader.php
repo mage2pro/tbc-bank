@@ -11,7 +11,7 @@ final class Reader extends \Df\Payment\W\Reader {
 	 * @param array(string => mixed) $r
 	 * @return array(string => mixed)
 	 */
-	protected function reqFilter(array $r) {
+	protected function reqFilter(array $r):array {
 		if ($t = dfa($r, Event::TID_SHORT)) {  /** @var string $t */
 			/**
 			 * 2018-09-28

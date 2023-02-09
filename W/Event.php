@@ -23,9 +23,8 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @override
 	 * @see \Df\Payment\W\Event::isSuccessful()
 	 * @used-by \Df\Payment\W\Strategy\ConfirmPending::_handle()
-	 * @return bool
 	 */
-	function isSuccessful() {return 'OK' === $this->paymentStatus();}
+	function isSuccessful():bool {return 'OK' === $this->paymentStatus();}
 
 	/**
 	 * 2018-11-12
@@ -49,9 +48,8 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @override
 	 * @see \Df\StripeClone\W\Event::k_pidSuffix()
 	 * @used-by \Df\StripeClone\W\Event::k_pid()
-	 * @return string
 	 */
-	protected function k_pidSuffix() {return self::TID_SHORT;}
+	protected function k_pidSuffix():string {return self::TID_SHORT;}
 
 	/**
 	 * 2018-09-28 The data have a flat structure.
@@ -59,21 +57,17 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @see \Df\StripeClone\W\Event::roPath()
 	 * @used-by \Df\StripeClone\W\Event::k_pid()
 	 * @used-by \Df\StripeClone\W\Event::ro()
-	 * @return null
 	 */
-	protected function roPath() {return null;}
+	protected function roPath():string {return '';}
 
 	/**
 	 * 2018-09-28
 	 * @override
-	 * @see \Df\StripeClone\W\Event::ttCurrent()
+	 * @see \Df\Payment\W\Event::ttCurrent()
 	 * @used-by \Df\StripeClone\W\Nav::id()
 	 * @used-by \Df\Payment\W\Strategy\ConfirmPending::_handle()
-	 * @return string
 	 */
-	function ttCurrent() {return
-		A::sg($this->m())->preconfiguredToCapture() ? self::T_CAPTURE : self::T_AUTHORIZE
-	;}
+	function ttCurrent():string {return A::sg($this->m())->preconfiguredToCapture() ? self::T_CAPTURE : self::T_AUTHORIZE;}
 
 	/**
 	 * 2018-09-28
@@ -81,9 +75,8 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @see \Df\StripeClone\W\Event::ttParent()
 	 * @used-by \Df\StripeClone\W\Nav::pidAdapt()
 	 * @see \Dfe\TBCBank\Init\Action::transId()
-	 * @return string
 	 */
-	function ttParent() {return self::T_INIT;}
+	function ttParent():string {return self::T_INIT;}
 	/**
 	 * 2018-11-13
 	 * @used-by self::cardId()

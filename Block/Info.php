@@ -11,7 +11,7 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @used-by \Df\StripeClone\Block\Info::card()
 	 * @return array(string => mixed)
 	 */
-	protected function cardData() {return dfc($this, function() {return
+	final protected function cardData() {return dfc($this, function() {return
 		$this->ci() ?: (($ev = $this->tm()->responseF()) ? $ev->r() : [])
 	;});}
 	
@@ -20,9 +20,8 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @override
 	 * @see \Df\StripeClone\Block\Info::cardNumberLabel()
 	 * @used-by \Df\StripeClone\Block\Info::prepare()
-	 * @return string
 	 */
-	protected function cardNumberLabel() {return 'Card Number';}
+	final protected function cardNumberLabel():string {return 'Card Number';}
 
 	/**
 	 * 2018-11-16
@@ -32,7 +31,7 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @used-by \Df\Payment\Block\Info::ci();
 	 * @return string
 	 */
-	protected function ciId() {return $this->tm()->req('biller_client_id');}
+	final protected function ciId() {return $this->tm()->req('biller_client_id');}
 
 	/**
 	 * 2018-11-12
@@ -40,7 +39,7 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @see \Df\StripeClone\Block\Info::prepare()
 	 * @used-by \Df\Payment\Block\Info::prepareToRendering()
 	 */
-	final protected function prepare() {
+	final protected function prepare():void {
 		parent::prepare();
 		 /** @var string|null $cardId */ /** @var array(string => string) $r */
 		if ($this->ciId() && ($r = $this->tm()->res0())) {
@@ -51,7 +50,7 @@ class Info extends \Df\StripeClone\Block\Info {
 				,'Approval Code' => dfa($r, 'APPROVAL_CODE')
 			]);
 		}
-		else if ($e = $this->tm()->responseF()) { /** @var E $e */
+		elseif ($e = $this->tm()->responseF()) { /** @var E $e */
 			$this->siEx([
 				'Payment Status' => $e->paymentStatus()
 				,'3D-Secure Status' => $e->_3dsStatus()
@@ -68,5 +67,5 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @used-by \Df\Payment\Block\Info::siID()
 	 * @return string
 	 */
-	protected function transIDLabel() {return 'Tansaction ID';}
+	final protected function transIDLabel():string {return 'Tansaction ID';}
 }

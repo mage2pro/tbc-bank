@@ -14,9 +14,8 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param string $id
 	 * @param int|float $a
 	 * The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
-	 * @return Operation
 	 */
-	function capturePreauthorized($id, $a) {return F::s()->post([
+	function capturePreauthorized($id, $a):Operation {return F::s()->post([
 		'amount' => $a
 		,'trans_id' => $id
 		,'client_ip_addr' => $this->tm()->req('client_ip_addr')
@@ -40,9 +39,8 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param Operation $c
-	 * @return string
 	 */
-	function id($c) {return $c[Ev::TID];}
+	function id($c):string {return $c[Ev::TID];}
 
 	/**
 	 * 2018-11-09
@@ -56,15 +54,13 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 
 	/**
 	 * 2018-11-09
+	 * 2022-12-19 The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::refund()
-	 * @used-by self::void()
 	 * @used-by \Df\StripeClone\Method::_refund()
-	 * @param string $id
-	 * @param float $a В формате и валюте платёжной системы. Значение готово для применения в запросе API.
 	 * @return null
 	 */
-	function refund($id, $a) {return null;}
+	function refund(string $id, int $a) {return null;}
 
 	/**
 	 * 2018-11-14
@@ -76,19 +72,17 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * It always consists of 10 characters.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::tokenIsNew()
+	 * @used-by \Df\StripeClone\Payer::tokenIsNew()
 	 * @used-by \Dfe\TBCBank\Init\Action::isRecurring()
-	 * @param string $id
-	 * @return bool
 	 */
-	function tokenIsNew($id) {return df_ends_with($id, '=');}
+	function tokenIsNew(string $id):bool {return df_ends_with($id, '=');}
 
 	/**
 	 * 2018-11-09
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::void()
 	 * @used-by \Df\StripeClone\Method::_refund()
-	 * @param string $id
 	 * @return null
 	 */
-	function void($id) {return null;}
+	function void(string $id) {return null;}
 }

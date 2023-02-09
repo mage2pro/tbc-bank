@@ -29,7 +29,7 @@ final class Init extends \Dfe\TBCBank\Test\CaseT {
 	/** 2018-09-26 */
 	function t03() {echo df_currency_num('GEL') . ' ' . gettype(df_currency_num('GEL'));}
 	
-	/** @test 2018-11-11 */
+	/** 2018-11-11 @test */
 	function t04() {echo F::s()->init([
 		# 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		'amount' => 100

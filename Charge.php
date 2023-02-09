@@ -14,10 +14,8 @@ final class Charge extends \Df\Payment\Charge {
 	 * @override
 	 * @see \Df\Payment\Charge::textFilter()
 	 * @used-by \Df\Payment\Charge::text()
-	 * @param string $s
-	 * @return string
 	 */
-	protected function textFilter($s) {return df_translit($s);}
+	protected function textFilter(string $s):string {return df_translit($s);}
 
 	/**
 	 * 2018-11-14

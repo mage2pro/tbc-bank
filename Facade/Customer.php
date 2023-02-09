@@ -4,35 +4,40 @@ namespace Dfe\TBCBank\Facade;
 /** @method \Dfe\TBCBank\Settings ss() */
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
-	 * 2018-11-14
-	 * It is never used because the TBCBank module does not use @see \Df\StripeClone\Payer::newCard()
+	 * 2018-11-14 It is never used because the TBCBank module does not use @see \Df\StripeClone\Payer::newCard()
+	 * 2022-11-13 It is similar to @see \Dfe\Vantiv\Facade\Customer::cardAdd()
+	 * 2022-11-17
+	 * `object` as an argument type is not supported by PHP < 7.2:
+	 * https://github.com/mage2pro/core/issues/174#user-content-object
+	 * 2022-12-19 We can not declare the $c argument type because it is undeclared in the overriden method.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
+	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param object $c
-	 * @param string $token
-	 * @return null
 	 */
-	function cardAdd($c, $token) {return null;}
+	function cardAdd($c, string $token):string {df_should_not_be_here(); return '';}
 
 	/**
-	 * 2018-11-14
-	 * It is never used because the TBCBank module does not use @see \Df\StripeClone\Payer::newCard()
+	 * 2018-11-14 It is never used because the TBCBank module does not use @see \Df\StripeClone\Payer::newCard()
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::create()
+	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param array(string => mixed) $p
 	 * @return null
 	 */
-	function create(array $p) {return null;}
+	function create(array $p) {df_should_not_be_here(); return null;}
 
 	/**
-	 * 2018-11-14
-	 * It is never used because the TBCBank module does not use @see \Df\StripeClone\Payer::newCard()
+	 * 2018-11-14 It is never used because the TBCBank module does not use @see \Df\StripeClone\Payer::newCard()
+	 * 2022-11-17
+	 * `object` as an argument type is not supported by PHP < 7.2:
+	 * https://github.com/mage2pro/core/issues/174#user-content-object
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::id()
+	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param object $c
-	 * @return null
 	 */
-	function id($c) {return null;}
+	function id($c):string {df_should_not_be_here(); return '';}
 
 	/**
 	 * 2018-11-13
