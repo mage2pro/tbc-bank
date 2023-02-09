@@ -93,7 +93,6 @@ final class Charge extends \Df\Payment\Charge {
 	/**
 	 * 2018-09-27
 	 * @used-by \Dfe\TBCBank\Session::init()
-	 * @param Method|null $m [optional]
 	 * @return array(string => mixed)
 	 */
 	static function p(Method $m = null):array {return (new self($m ?: dfpm(__CLASS__)))->pCharge();}
