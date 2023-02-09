@@ -5,13 +5,13 @@ use Zend_Http_Client as Z;
 # 2018-09-26
 final class Init extends \Dfe\TBCBank\Test\CaseT {
 	/** 2018-09-26 */
-	function t00() {}
+	function t00():void {}
 
 	/** 2018-09-26 */
-	function t01() {echo $this->transId();}
+	function t01():void {echo $this->transId();}
 
 	/** 2018-09-26 */
-	function t02() {
+	function t02():void {
 		$z = new Z('https://ecommerce.ufc.ge/ecomm2/ClientHandler', [
 			'timeout' => 120
 			/**
@@ -27,10 +27,10 @@ final class Init extends \Dfe\TBCBank\Test\CaseT {
 	}
 
 	/** 2018-09-26 */
-	function t03() {echo df_currency_num('GEL') . ' ' . gettype(df_currency_num('GEL'));}
+	function t03():void {echo df_currency_num('GEL') . ' ' . gettype(df_currency_num('GEL'));}
 	
 	/** 2018-11-11 @test */
-	function t04() {echo F::s()->init([
+	function t04():void {echo F::s()->init([
 		# 2018-09-26 «transaction amount in fractional units, mandatory (up to 12 digits)»
 		'amount' => 100
 		# 2018-09-26 «client’s IP address, mandatory (15 characters)»
