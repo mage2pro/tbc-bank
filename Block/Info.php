@@ -29,9 +29,8 @@ class Info extends \Df\StripeClone\Block\Info {
 	 * @see \Df\Payment\Block\Info::ciId()
 	 * @used-by self::prepare()
 	 * @used-by \Df\Payment\Block\Info::ci();
-	 * @return string
 	 */
-	final protected function ciId() {return $this->tm()->req('biller_client_id');}
+	final protected function ciId():string {return $this->tm()->req('biller_client_id');}
 
 	/**
 	 * 2018-11-12
