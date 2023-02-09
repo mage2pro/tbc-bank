@@ -14,13 +14,12 @@ final class Init {
 	 * $qp в поле @see \Magento\Framework\DataObject::_data содержит код способа оплаты,
 	 * а также ту дополнительную информацию, которую передала клиентская часть модуля оплаты.
 	 * Например: [additional_data => [], method => "dfe_klarna"].
-	 * @param string $email
 	 * @param IQP|QP $qp
 	 * @param IQA|QA|null $ba
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 * @return string
 	 */
-	function guest(string $cartId, $email, IQP $qp, IQA $ba = null) {return $this->p();}
+	function guest(string $cartId, string $email, IQP $qp, IQA $ba = null) {return $this->p();}
 
 	/**
 	 * 2018-09-28
