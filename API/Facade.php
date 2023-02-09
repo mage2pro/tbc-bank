@@ -35,10 +35,9 @@ final class Facade extends \Df\API\Facade {
 	/**
 	 * 2018-11-11 It returns a string like «rm2opABtitnKMNPjcybjvAQ5H9g=»
 	 * @used-by \Dfe\TBCBank\Test\CaseT\Regular::transId()
-	 * @return string
 	 * @throws DFE
 	 */
-	function initRegular(array $p) {return $this->postAndReturnId($p);}
+	function initRegular(array $p):string {return $this->postAndReturnId($p);}
 
 	/**
 	 * 2018-11-11
