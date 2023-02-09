@@ -26,7 +26,7 @@ final class Client extends \Df\API\Client {
 	 * @override
 	 * @see \Df\API\Client::proxy()
 	 * @used-by \Df\API\Client::setup()
-	 * @return Proxy
+	 * @return Proxy|null
 	 */
 	protected function proxy() {
 		$s = dfps($this); /** @var S $s */
