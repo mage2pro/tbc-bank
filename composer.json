@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/tbc-bank"
-	,"version": "1.5.0"
+	,"version": "1.5.1"
 	,"description": "TBC Bank (Georgia) integration with Magento 2"
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/tbc-bank"
@@ -11,7 +11,7 @@
 		"homepage": "https://upwork.com/fl/mage2pro",
 		"role": "Developer"
 	}]
-	,"require": {"mage2pro/core": ">=7.8.9"}
+	,"require": {"mage2pro/core": ">=10.1.5"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\TBCBank\\": ""}}
 	,"keywords": [
 		"API"

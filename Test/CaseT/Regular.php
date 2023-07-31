@@ -10,7 +10,7 @@ final class Regular extends \Dfe\TBCBank\Test\CaseT {
 	function t01():void {echo __METHOD__ . ': ' . $this->transId();}
 
 	/** 2018-11-13 */
-	function t02():void {echo df_json_encode(df_extend(
+	function t02():void {echo df_json_encode(dfa_merge_r(
 		['TBCBank' => ['1111' => ['a' => 'b']]]
 		,['TBCBank' => ['2222' => ['c' => 'd']]]
 	));}
