@@ -12,6 +12,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @see \Df\API\Exception::long()
 	 * @used-by self::valid()
 	 * @used-by \Df\API\Client::_p()
+	 * @used-by \Df\API\Exception::message()
 	 */
 	function long():string {return df_nts($this->r('error') ?: ('FAILED' !== $this->r('RESULT') ? null : (
 		(string)__(($c = $this->r('RESULT_CODE')) ? "Dfe_TBCBank_R_$c" : 'An unknown error occured')
