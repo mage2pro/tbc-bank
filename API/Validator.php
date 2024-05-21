@@ -9,7 +9,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * 2) An error message: «error: parameter 'command' not specified».
 	 * 3) An error response always ends with a new line for an unknown reason.
 	 * @override
-	 * @see \Df\API\Exception::long()
+	 * @see \Df\API\Response\Validator::long()
 	 * @used-by self::valid()
 	 * @used-by \Df\API\Client::_p()
 	 * @used-by \Df\API\Exception::message()
